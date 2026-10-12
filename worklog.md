@@ -41,3 +41,24 @@ Stage Summary:
 - Lint ✅, tsc (src) ✅, all QA green. Production build intentionally not run (sandbox forbids `bun run build`); noted in report.
 - Form delivery status: storage tested & working; email forwarding implemented but unconfigured (needs RESEND_API_KEY) — documented honestly in README/.env.example.
 - Owner-approval blockers listed in content/migration-inventory.md §6.
+
+---
+Task ID: 13
+Agent: Z.ai Code (main)
+Task: Brutalist-minimal redesign of the entire Your Tech Eye site: premium editorial identity, photo/video-rich media, copy de-genericization (no em dashes, no "24/7 monitoring, day and night" headline tropes).
+
+Work Log:
+- Defined "BRUTAL MINIMAL" design system in globals.css: bone #F1EFE9 / ink #161512 / single vermilion signal #E23A0C, 0px radius everywhere, hairline grids, hard offset shadows, Archivo (wght 100-900 + wdth axis for expanded display type) + JetBrains Mono, CSS marquee/rec-blink/photo-brutal (grayscale-to-color) utilities.
+- New components: Wordmark (typographic mark replacing the navy photo logo), OpsClock + FeedOverlay (hydration-safe live UTC+6 clocks, REC indicators), Marquee (seamless ticker), AutoVideo (autoplay-retry muted loop).
+- Rebuilt SiteHeader (ink utility strip with coordinates + live ops clock; hard-bordered dropdown; full-screen ink mobile menu with Escape + scroll lock + focus return) and SiteFooter (giant 8.6vw "YOUR TECH EYE" wordmark, mono columns, credits line).
+- Rebuilt homepage: hero "A CAMERA IS NOT A GUARD." (stacked display type, outline line, signal period), mono stat grid, marquee, problem section with numbered rows, services index rows (invert-on-hover), "Field of view" bento grid with looping real CCTV video + FIG captions, dark method section over satellite city grid, use-case data rows, FAQ, ink CTA band.
+- Restyled all secondary pages to the same system: services, contact, about, surveillance-security-solutions, ServiceDetail template (4 service pages), privacy, 404, contact form success/error states, SectionHeading/ServiceCard/FaqAccordion/Breadcrumbs/ContactCta.
+- Media: ran 10 image-search queries, visually inspected 25+ candidates, rejected 15+ (watermarks, brand products, off-topic); processed 8 new photos via sharp into /public/media; sourced public-domain PTZ parking-lot CCTV video from Wikimedia Commons, trimmed to 10s muted VP9 via ffmpeg; removed 2 duplicate files and the unusable NASA clip; updated MEDIA_CREDITS.md with full second-pass licence register + rejected-candidates record.
+- Copy sweep: removed ALL em dashes from every visible string (content/services.ts, faq.ts, site.ts, forms, API route, pages); replaced "24/7 monitoring, day and night"-style hero/phrasing with "every hour of every day" variants; renamed "24/7 monitoring activated" step to "Monitoring goes live"; kept factual 24/7 mentions only inside FAQ question copy.
+- Fixed bugs found during verification: duplicate page title brand suffix, stale .jpg media reference, missing cn import, video autoplay blocked in some engines (AutoVideo retry), hero H1 wrap under 125% font-stretch, footer wordmark overflow.
+- QA via agent-browser at 1440x900 and 390x844: hero renders, marquee animates, dropdown opens via hover and focus, FAQ accordion toggles, mobile menu opens/closes with Escape, contact form submits end-to-end and lead stored in SQLite with preselected service, video plays (currentTime advances), ops clocks tick, footer wordmark fits, no console errors; bun run lint exit 0.
+
+Stage Summary:
+- The site now has a distinctive brutalist-minimal identity that does not read as a template: warm bone paper, raw ink borders, expanded Archivo display caps, JetBrains Mono metadata, one vermilion signal color, zero rounded corners.
+- Media library: 26 webp photos + 1 webm video loop, all catalogued in MEDIA_CREDITS.md (some re-hosted items flagged "verify before commercial launch" for the owner).
+- All 11 routes live and verified in browser; lint clean; no runtime errors in dev.log.

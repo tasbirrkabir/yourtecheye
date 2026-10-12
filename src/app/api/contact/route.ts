@@ -41,14 +41,14 @@ const contactSchema = z
       ctx.addIssue({
         code: "custom",
         path: ["email"],
-        message: "That email address does not look right — please check it.",
+        message: "That email address does not look right. Please check it.",
       });
     }
     if (data.phone && data.phone.replace(/[^\d+]/g, "").length < 6) {
       ctx.addIssue({
         code: "custom",
         path: ["phone"],
-        message: "That phone number looks too short — please check it.",
+        message: "That phone number looks too short. Please check it.",
       });
     }
     const validServices = [
@@ -102,19 +102,19 @@ async function emailDeliver(payload: {
 }): Promise<boolean> {
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.CONTACT_TO_EMAIL;
-  if (!apiKey || !to) return false; // delivery not configured — handled honestly below
+  if (!apiKey || !to) return false; // delivery not configured, handled honestly below
 
   const lines = [
     `Name: ${payload.name}`,
-    `Organisation: ${payload.organization || "—"}`,
-    `Email: ${payload.email || "—"}`,
-    `Phone: ${payload.phone || "—"}`,
-    `Service interest: ${payload.service || "—"}`,
-    `Site location: ${payload.siteLocation || "—"}`,
+    `Organisation: ${payload.organization || "not provided"}`,
+    `Email: ${payload.email || "not provided"}`,
+    `Phone: ${payload.phone || "not provided"}`,
+    `Service interest: ${payload.service || "not provided"}`,
+    `Site location: ${payload.siteLocation || "not provided"}`,
     "",
     payload.message,
   ];
-  const subject = `Website enquiry — ${payload.name}${payload.organization ? ` (${payload.organization})` : ""}`;
+  const subject = `Website enquiry: ${payload.name}${payload.organization ? ` (${payload.organization})` : ""}`;
 
   try {
     const res = await fetch("https://api.resend.com/emails", {
@@ -193,7 +193,7 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  // Store first — a lead must never be silently lost.
+  // Store first: a lead must never be silently lost.
   let stored = false;
   try {
     await db.contactSubmission.create({
@@ -231,7 +231,7 @@ export async function POST(req: NextRequest) {
   }
 
   if (!stored && !emailed) {
-    // Nothing succeeded — be honest, never claim the enquiry was sent.
+    // Nothing succeeded: be honest, never claim the enquiry was sent.
     return NextResponse.json(
       {
         ok: false,

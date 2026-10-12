@@ -1,39 +1,53 @@
 import Link from "next/link";
-import Image from "next/image";
-import { Phone, Mail, MapPin, ShieldCheck } from "lucide-react";
 import { site } from "@/lib/site";
 import { services } from "@/content/services";
 import { Container } from "./container";
 
 export function SiteFooter() {
+  const year = new Date().getFullYear();
+
   return (
-    <footer className="mt-auto bg-ink text-[#b6c6d8]">
-      <Container className="py-14 sm:py-16">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
-          {/* Brand */}
-          <div>
-            <div className="inline-flex rounded-xl bg-white p-3">
-              <Image
-                src="/brand/yourtecheye-logo.png"
-                alt={`${site.name} logo`}
-                width={683}
-                height={366}
-                className="h-10 w-auto"
-              />
-            </div>
-            <p className="mt-5 max-w-sm text-sm leading-relaxed">
-              A monitoring and technology company providing smart, secure, and
-              reliable protection for businesses, properties, and families.
-            </p>
-            <p className="mt-4 inline-flex items-center gap-2 rounded-full border border-ink-line bg-ink-soft px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#7db8e0]">
-              <ShieldCheck className="h-3.5 w-3.5" aria-hidden="true" />
-              {site.tagline}
-            </p>
-          </div>
+    <footer className="mt-auto border-t-2 border-ink bg-ink text-paper">
+      {/* Giant wordmark */}
+      <div className="px-4 pt-12 sm:px-6 sm:pt-16">
+        <p className="stretch-wide select-none text-center font-black uppercase leading-[0.85] tracking-tight text-paper">
+          <span className="block whitespace-nowrap text-[8.6vw]">Your Tech Eye</span>
+        </p>
+        <p className="mt-4 text-center font-mono text-[10px] uppercase tracking-[0.3em] text-paper/60 sm:text-xs">
+          Live monitoring: verify: intervene: report
+        </p>
+      </div>
+
+      <Container className="pb-10 pt-12 sm:pb-12">
+        <div className="grid gap-10 border-t border-line-dark pt-10 md:grid-cols-2 lg:grid-cols-[1fr_1fr_1.2fr]">
+          {/* Index */}
+          <nav aria-label="Footer: company">
+            <h2 className="font-mono text-[11px] font-bold uppercase tracking-[0.25em] text-signal">
+              Index
+            </h2>
+            <ul className="mt-4 space-y-2.5 text-sm">
+              {[
+                { href: "/", label: "Home" },
+                { href: "/about", label: "About" },
+                { href: "/services", label: "Services" },
+                { href: "/contact", label: "Contact" },
+                { href: "/privacy", label: "Privacy" },
+              ].map((l) => (
+                <li key={l.href}>
+                  <Link
+                    href={l.href}
+                    className="font-bold uppercase tracking-wide text-paper/90 transition-colors hover:text-signal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
           {/* Services */}
-          <nav aria-label="Services">
-            <h2 className="text-sm font-semibold uppercase tracking-wider text-white">
+          <nav aria-label="Footer: services">
+            <h2 className="font-mono text-[11px] font-bold uppercase tracking-[0.25em] text-signal">
               Services
             </h2>
             <ul className="mt-4 space-y-2.5 text-sm">
@@ -41,59 +55,18 @@ export function SiteFooter() {
                 <li key={s.slug}>
                   <Link
                     href={`/${s.slug}`}
-                    className="transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    className="font-bold uppercase tracking-wide text-paper/90 transition-colors hover:text-signal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   >
-                    {s.title}
+                    {s.navTitle}
                   </Link>
                 </li>
               ))}
               <li>
                 <Link
                   href="/surveillance-security-solutions"
-                  className="transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  className="font-bold uppercase tracking-wide text-paper/90 transition-colors hover:text-signal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 >
-                  Surveillance & Security Solutions
-                </Link>
-              </li>
-            </ul>
-          </nav>
-
-          {/* Company */}
-          <nav aria-label="Company">
-            <h2 className="text-sm font-semibold uppercase tracking-wider text-white">
-              Company
-            </h2>
-            <ul className="mt-4 space-y-2.5 text-sm">
-              <li>
-                <Link
-                  href="/about"
-                  className="transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services"
-                  className="transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                >
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                >
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/privacy"
-                  className="transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                >
-                  Privacy
+                  Surveillance &amp; Security Solutions
                 </Link>
               </li>
             </ul>
@@ -101,49 +74,44 @@ export function SiteFooter() {
 
           {/* Contact */}
           <div>
-            <h2 className="text-sm font-semibold uppercase tracking-wider text-white">
+            <h2 className="font-mono text-[11px] font-bold uppercase tracking-[0.25em] text-signal">
               Contact
             </h2>
             <ul className="mt-4 space-y-3 text-sm">
               <li>
                 <a
                   href={site.contact.phoneHref}
-                  className="inline-flex items-center gap-2.5 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  className="font-mono text-base font-bold tracking-wide text-paper transition-colors hover:text-signal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 >
-                  <Phone className="h-4 w-4 shrink-0 text-[#7db8e0]" aria-hidden="true" />
                   {site.contact.phone}
                 </a>
               </li>
               <li>
                 <a
                   href={site.contact.emailHref}
-                  className="inline-flex items-center gap-2.5 break-all transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  className="break-all text-paper/90 transition-colors hover:text-signal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 >
-                  <Mail className="h-4 w-4 shrink-0 text-[#7db8e0]" aria-hidden="true" />
                   {site.contact.email}
                 </a>
               </li>
-              <li className="inline-flex items-start gap-2.5">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#7db8e0]" aria-hidden="true" />
-                <span>{site.contact.location}</span>
-              </li>
-              <li className="pt-1 text-xs font-semibold uppercase tracking-wider text-[#7db8e0]">
-                24/7 Monitoring Services
+              <li className="text-paper/70">{site.contact.location}</li>
+              <li className="pt-1 font-mono text-[11px] uppercase tracking-[0.2em] text-paper/60">
+                Continuous monitoring: every hour of every day
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-ink-line pt-6 text-xs sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-3 border-t border-line-dark pt-6 font-mono text-[10px] uppercase tracking-[0.15em] text-paper/50 sm:flex-row sm:items-center sm:justify-between sm:text-[11px]">
           <p>
-            © {new Date().getFullYear()} {site.name}. All rights reserved.
+            &copy; {year} {site.name}. All rights reserved.
           </p>
-          <p className="max-w-xl leading-relaxed">
+          <p className="max-w-xl normal-case tracking-normal">
             Photography is licensed stock or public-archive material used
-            illustratively — see{" "}
+            illustratively. See{" "}
             <Link
               href="/privacy#media-credits"
-              className="underline decoration-[#3d5570] underline-offset-2 hover:text-white"
+              className="underline decoration-paper/40 underline-offset-2 hover:text-paper"
             >
               media credits
             </Link>

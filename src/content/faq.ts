@@ -1,5 +1,5 @@
 /**
- * Site-wide FAQ — answers are grounded in verified official content only
+ * Site-wide FAQ, answers are grounded in verified official content only
  * (yourtecheye.com, captured 2026-10-12). Questions the business has not
  * published answers for (coverage areas, response SLAs, contracts) are
  * deliberately omitted rather than guessed.
@@ -13,12 +13,12 @@ export const homeFaqs: Faq[] = [
   {
     question: "What does Your Tech Eye monitor?",
     answer:
-      "Your Tech Eye monitors CCTV camera feeds for businesses, properties, and homes — watching live for suspicious activity, verifying what is detected, and following an agreed escalation plan when something needs action.",
+      "Your Tech Eye monitors CCTV camera feeds for businesses, properties, and homes, watching live for suspicious activity, verifying what is detected, and following an agreed escalation plan when something needs action.",
   },
   {
     question: "Is the monitoring service available 24/7?",
     answer:
-      "Yes. Live 24-hour monitoring, day and night, is the core of the service — sites stay under continuous surveillance with real-time monitoring and active supervision.",
+      "Yes. Monitoring runs every hour of every day: sites stay under continuous live surveillance with real-time monitoring and active supervision.",
   },
   {
     question: "Do I need to replace my existing cameras?",
@@ -38,7 +38,7 @@ export const homeFaqs: Faq[] = [
   {
     question: "Can I view my own cameras?",
     answer:
-      "Yes. You get secure access to your cameras anytime, anywhere — from mobile, tablet, or PC — along with detailed reports and incident logs.",
+      "Yes. You get secure access to your cameras anytime, anywhere, from mobile, tablet, or PC, along with detailed reports and incident logs.",
   },
   {
     question: "How do I request a consultation or a quote?",

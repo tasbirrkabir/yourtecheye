@@ -8,9 +8,9 @@ import { ContactForm } from "@/components/forms/contact-form";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Contact — Request a Consultation",
+  title: "Contact: Request a Consultation",
   description:
-    "Talk to Your Tech Eye about monitoring your site. Call, email, or send the short enquiry form — we respond to every genuine enquiry.",
+    "Talk to Your Tech Eye about monitoring your site. Call, email, or send the short enquiry form. We respond to every genuine enquiry.",
   alternates: { canonical: "/contact" },
 };
 
@@ -33,18 +33,22 @@ export default async function ContactPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <section className="border-b border-border bg-white">
+      <section className="border-b-2 border-ink bg-paper">
         <Container className="py-12 sm:py-16">
           <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Contact" }]} />
           <Reveal>
-            <div className="mt-8 max-w-2xl">
-              <h1 className="text-balance text-3xl font-extrabold leading-tight tracking-tight text-ink sm:text-4xl lg:text-[2.9rem]">
-                Let&apos;s talk about your site
+            <div className="mt-8 max-w-3xl">
+              <p className="flex items-center gap-2.5 font-mono text-[11px] font-bold uppercase tracking-[0.25em] text-ink sm:text-xs">
+                <span className="inline-block h-2 w-2 bg-signal" aria-hidden="true" />
+                Contact
+              </p>
+              <h1 className="stretch-xwide mt-5 text-4xl font-black uppercase leading-[0.95] tracking-tight text-ink sm:text-6xl">
+                Let&apos;s talk about your site<span className="text-signal">.</span>
               </h1>
-              <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+              <p className="mt-6 max-w-2xl text-base leading-relaxed text-smoke sm:text-lg">
                 Tell us about your property, your existing cameras, and what you
                 want protected. We read every enquiry and reply using the contact
-                details you provide — no obligation, no pressure.
+                details you provide: no obligation, no pressure.
               </p>
             </div>
           </Reveal>
@@ -52,25 +56,27 @@ export default async function ContactPage({
       </section>
 
       <section aria-label="Contact options and form" className="bg-paper">
-        <Container className="py-14 sm:py-18">
+        <Container className="py-14 sm:py-20">
           <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
             {/* Direct contact paths */}
             <Reveal>
-              <div className="space-y-4">
+              <div className="space-y-px border border-line bg-line">
                 <a
                   href={site.contact.phoneHref}
-                  className="group block rounded-xl border border-border bg-white p-5 transition-all hover:-translate-y-0.5 hover:border-[#b9d3e8] hover:shadow-[0_10px_28px_rgba(10,27,46,0.09)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  className="group block bg-paper p-5 transition-colors hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring"
                 >
                   <div className="flex items-start gap-4">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-brand-tint text-brand-strong">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center border-2 border-ink text-ink group-hover:bg-ink group-hover:text-paper">
                       <Phone className="h-5 w-5" aria-hidden="true" />
                     </span>
                     <div>
-                      <h2 className="font-bold text-ink">Call us</h2>
-                      <p className="mt-1 text-sm text-muted-foreground group-hover:text-foreground">
+                      <h2 className="stretch-wide text-base font-black uppercase tracking-tight text-ink">
+                        Call us
+                      </h2>
+                      <p className="mt-1 font-mono text-sm font-bold text-ink">
                         {site.contact.phone}
                       </p>
-                      <p className="mt-0.5 text-xs text-muted-foreground">
+                      <p className="mt-0.5 text-xs text-smoke">
                         Fastest route for urgent site questions.
                       </p>
                     </div>
@@ -79,48 +85,54 @@ export default async function ContactPage({
 
                 <a
                   href={site.contact.emailHref}
-                  className="group block rounded-xl border border-border bg-white p-5 transition-all hover:-translate-y-0.5 hover:border-[#b9d3e8] hover:shadow-[0_10px_28px_rgba(10,27,46,0.09)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  className="group block bg-paper p-5 transition-colors hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring"
                 >
                   <div className="flex items-start gap-4">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-brand-tint text-brand-strong">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center border-2 border-ink text-ink group-hover:bg-ink group-hover:text-paper">
                       <Mail className="h-5 w-5" aria-hidden="true" />
                     </span>
                     <div className="min-w-0">
-                      <h2 className="font-bold text-ink">Email us</h2>
-                      <p className="mt-1 break-all text-sm text-muted-foreground group-hover:text-foreground">
+                      <h2 className="stretch-wide text-base font-black uppercase tracking-tight text-ink">
+                        Email us
+                      </h2>
+                      <p className="mt-1 break-all text-sm font-medium text-ink">
                         {site.contact.email}
                       </p>
-                      <p className="mt-0.5 text-xs text-muted-foreground">
+                      <p className="mt-0.5 text-xs text-smoke">
                         Good for plans, layouts, and detailed enquiries.
                       </p>
                     </div>
                   </div>
                 </a>
 
-                <div className="rounded-xl border border-border bg-white p-5">
+                <div className="bg-paper p-5">
                   <div className="flex items-start gap-4">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-brand-tint text-brand-strong">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center border-2 border-ink text-ink">
                       <MapPin className="h-5 w-5" aria-hidden="true" />
                     </span>
                     <div>
-                      <h2 className="font-bold text-ink">Where we are</h2>
-                      <p className="mt-1 text-sm text-muted-foreground">
+                      <h2 className="stretch-wide text-base font-black uppercase tracking-tight text-ink">
+                        Where we are
+                      </h2>
+                      <p className="mt-1 text-sm text-smoke">
                         {site.contact.location}
                       </p>
                     </div>
                   </div>
                 </div>
 
-                <div className="rounded-xl border border-border bg-ink p-5 text-[#b6c6d8]">
+                <div className="bg-ink p-5 text-paper">
                   <div className="flex items-start gap-4">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#16304b] text-[#7db8e0]">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center border-2 border-line-dark text-signal">
                       <Clock className="h-5 w-5" aria-hidden="true" />
                     </span>
                     <div>
-                      <h2 className="font-bold text-white">24/7 Monitoring Services</h2>
-                      <p className="mt-1 text-sm leading-relaxed">
-                        The monitoring operation runs around the clock — day and
-                        night. Enquiries are answered by the team as quickly as
+                      <h2 className="stretch-wide text-base font-black uppercase tracking-tight text-paper">
+                        Continuous monitoring
+                      </h2>
+                      <p className="mt-1 text-sm leading-relaxed text-paper/70">
+                        The monitoring operation runs every hour of every day.
+                        Enquiries are answered by the team as quickly as
                         possible.
                       </p>
                     </div>
@@ -131,12 +143,14 @@ export default async function ContactPage({
 
             {/* Form */}
             <Reveal delay={100}>
-              <div className="rounded-2xl border border-border bg-white p-6 shadow-[0_8px_30px_rgba(10,27,46,0.06)] sm:p-8">
-                <h2 className="text-xl font-bold text-ink">Request a consultation</h2>
-                <p className="mb-6 mt-1.5 text-sm text-muted-foreground">
-                  Fields marked <span className="text-destructive">*</span> are required.
+              <div className="border-2 border-ink bg-paper p-6 sm:p-8">
+                <h2 className="stretch-wide text-xl font-black uppercase tracking-tight text-ink sm:text-2xl">
+                  Request a consultation
+                </h2>
+                <p className="mb-6 mt-1.5 font-mono text-xs uppercase tracking-[0.15em] text-smoke">
+                  Fields marked <span className="text-signal">*</span> are required.
                 </p>
-                <Suspense fallback={<p className="text-sm text-muted-foreground">Loading form…</p>}>
+                <Suspense fallback={<p className="text-sm text-smoke">Loading form…</p>}>
                   <ContactForm defaultService={service} />
                 </Suspense>
               </div>

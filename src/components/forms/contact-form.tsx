@@ -56,7 +56,7 @@ export function ContactForm({
     if (!email && !phone) {
       nextErrors.email = "Add an email address or a phone number so we can reply.";
     } else if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      nextErrors.email = "That email address does not look right — please check it.";
+      nextErrors.email = "That email address does not look right. Please check it.";
     }
     if (!message) nextErrors.message = "Please describe briefly what you need.";
     if (!consent) nextErrors.consent = "Please confirm you agree to being contacted about your enquiry.";
@@ -92,7 +92,7 @@ export function ContactForm({
       if (res.ok && json.ok) {
         setStatus("success");
         setFormMessage(
-          "Thank you — your request has been received. The Your Tech Eye team will get back to you using the contact details you provided."
+          "Thank you: your request has been received. The Your Tech Eye team will get back to you using the contact details you provided."
         );
         form.reset();
         setService("");
@@ -101,7 +101,7 @@ export function ContactForm({
         setErrors(json.fieldErrors ?? {});
         setFormMessage(
           json.error ??
-            "Sorry — your request could not be sent right now. Please try again, or call us directly."
+            "Sorry: your request could not be sent right now. Please try again, or call us directly."
         );
       }
     } catch {
@@ -125,19 +125,19 @@ export function ContactForm({
       <div
         role="status"
         aria-live="polite"
-        className="rounded-xl border border-[#bfe0cd] bg-[#f0f9f4] p-6 sm:p-8"
+        className="border-2 border-ink bg-paper p-6 sm:p-8"
       >
         <div className="flex items-start gap-3">
-          <CheckCircle2 className="mt-0.5 h-6 w-6 shrink-0 text-[#16794b]" aria-hidden="true" />
+          <CheckCircle2 className="mt-0.5 h-6 w-6 shrink-0 text-signal" aria-hidden="true" />
           <div>
-            <h3 className="text-lg font-bold text-ink">Request received</h3>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+            <h3 className="stretch-wide text-lg font-black uppercase tracking-tight text-ink">Request received</h3>
+            <p className="mt-2 text-sm leading-relaxed text-smoke">
               {formMessage}
             </p>
             <button
               type="button"
               onClick={() => setStatus("idle")}
-              className="mt-4 text-sm font-semibold text-brand-strong underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="mt-4 font-mono text-xs font-bold uppercase tracking-[0.15em] text-signal underline decoration-signal/40 underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               Send another enquiry
             </button>
@@ -149,7 +149,7 @@ export function ContactForm({
 
   return (
     <form onSubmit={onSubmit} noValidate className="space-y-5">
-      {/* Honeypot — hidden from humans, catches naive bots */}
+      {/* Honeypot: hidden from humans, catches naive bots */}
       <div className="absolute -left-[9999px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
         <label>
           Leave this field empty
@@ -232,7 +232,7 @@ export function ContactForm({
               <SelectItem value="surveillance-security-solutions">
                 Surveillance & Security Solutions
               </SelectItem>
-              <SelectItem value="not-sure">Not sure yet — advise me</SelectItem>
+              <SelectItem value="not-sure">Not sure yet, advise me</SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -315,7 +315,7 @@ export function ContactForm({
         )}
       </Button>
       <p className="text-xs leading-relaxed text-muted-foreground">
-        We use your details only to answer this enquiry — never for marketing lists,
+        We use your details only to answer this enquiry, never for marketing lists,
         and never shared with third parties.
       </p>
     </form>

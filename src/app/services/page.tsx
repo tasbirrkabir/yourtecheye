@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/site/container";
 import { SectionHeading } from "@/components/site/section-heading";
 import { Reveal } from "@/components/site/reveal";
@@ -12,9 +11,9 @@ import { services, howItWorks } from "@/content/services";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Services — Surveillance, Monitoring & Response",
+  title: "Services: Surveillance, Monitoring & Response",
   description:
-    "Explore Your Tech Eye's services: live CCTV monitoring, live audio intervention, emergency escalation, and playback footage analysis — built around your site.",
+    "Explore Your Tech Eye's services: live CCTV monitoring, live audio intervention, emergency escalation, and playback footage analysis, built around your site.",
   alternates: { canonical: "/services" },
 };
 
@@ -44,31 +43,24 @@ export default function ServicesPage() {
       />
 
       {/* Intro */}
-      <section className="border-b border-border bg-white">
+      <section className="border-b-2 border-ink bg-paper">
         <Container className="py-12 sm:py-16">
           <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Services" }]} />
           <Reveal>
             <div className="mt-8 max-w-3xl">
-              <h1 className="text-balance text-3xl font-extrabold leading-tight tracking-tight text-ink sm:text-4xl lg:text-[2.9rem]">
-                Monitoring services built around your site
+              <p className="flex items-center gap-2.5 font-mono text-[11px] font-bold uppercase tracking-[0.25em] text-ink sm:text-xs">
+                <span className="inline-block h-2 w-2 bg-signal" aria-hidden="true" />
+                Services
+              </p>
+              <h1 className="stretch-xwide mt-5 text-4xl font-black uppercase leading-[0.95] tracking-tight text-ink sm:text-6xl">
+                Monitoring services built around your site<span className="text-signal">.</span>
               </h1>
-              <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+              <p className="mt-6 max-w-2xl text-base leading-relaxed text-smoke sm:text-lg">
                 Your Tech Eye keeps watch over your cameras, verifies what is
                 seen, and acts while it still matters. Pick the service that
-                matches your problem — or combine them into one complete
+                matches your problem, or combine them into one complete
                 monitoring arrangement.
               </p>
-              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                <Button asChild size="lg" className="font-semibold">
-                  <Link href="/contact">Discuss Your Site</Link>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="font-semibold">
-                  <Link href="/surveillance-security-solutions">
-                    Equipment & solutions
-                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                  </Link>
-                </Button>
-              </div>
             </div>
           </Reveal>
         </Container>
@@ -79,12 +71,13 @@ export default function ServicesPage() {
         <Container className="py-16 sm:py-20">
           <Reveal>
             <SectionHeading
+              index="01"
               eyebrow="Core services"
               title="What Your Tech Eye does"
               description="Each service answers a specific question: who is watching, how are intruders deterred, what happens after an alert, and what really occurred."
             />
           </Reveal>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
             {services.map((service, i) => (
               <Reveal key={service.slug} delay={i * 70}>
                 <ServiceCard service={service} />
@@ -95,37 +88,41 @@ export default function ServicesPage() {
       </section>
 
       {/* Solutions strip */}
-      <section aria-labelledby="solutions-heading" className="bg-white">
+      <section aria-labelledby="solutions-heading" className="border-y-2 border-ink bg-ink text-paper">
         <Container className="py-16 sm:py-20">
-          <div className="grid items-center gap-10 rounded-2xl border border-border bg-paper p-8 sm:p-10 lg:grid-cols-[1.2fr_0.8fr]">
+          <div className="grid items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
             <Reveal>
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.14em] text-brand-strong">
+                <p className="flex items-center gap-2.5 font-mono text-[11px] font-bold uppercase tracking-[0.25em] text-signal sm:text-xs">
+                  <span className="inline-block h-2 w-2 bg-signal" aria-hidden="true" />
                   Behind the monitoring
                 </p>
-                <h2 id="solutions-heading" className="mt-2 text-2xl font-bold tracking-tight text-ink sm:text-3xl">
-                  Surveillance & Security Solutions
+                <h2 id="solutions-heading" className="stretch-wide mt-4 text-3xl font-black uppercase leading-[0.98] tracking-tight sm:text-5xl">
+                  Surveillance &amp; Security Solutions
                 </h2>
-                <p className="mt-3 max-w-xl leading-relaxed text-muted-foreground">
+                <p className="mt-5 max-w-xl text-base leading-relaxed text-paper/70">
                   The systems side of the service: HD/4K cameras, motion-detection
                   alerts, secure cloud or local storage, remote access, and
-                  continuous recording — supplied, installed, and supported for
+                  continuous recording. Supplied, installed, and supported for
                   homes, offices, shops, and warehouses.
                 </p>
-                <Button asChild className="mt-6 font-semibold">
-                  <Link href="/surveillance-security-solutions">
-                    Explore the solutions
-                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                  </Link>
-                </Button>
+                <Link
+                  href="/surveillance-security-solutions"
+                  className="group mt-8 inline-flex items-center gap-2 border-2 border-paper px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-paper transition-colors hover:bg-signal hover:border-signal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                >
+                  Explore the solutions
+                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+                </Link>
               </div>
             </Reveal>
             <Reveal delay={80}>
-              <ul className="space-y-2.5 text-sm">
-                {howItWorks.slice(0, 3).map((step) => (
-                  <li key={step.step} className="flex items-start gap-2.5">
-                    <CheckCircle2 className="mt-0.5 h-4.5 w-4.5 shrink-0 text-brand-strong" aria-hidden="true" />
-                    <span className="font-medium text-foreground">{step.step}</span>
+              <ul className="border-t border-line-dark">
+                {howItWorks.slice(0, 3).map((step, i) => (
+                  <li key={step.step} className="flex items-baseline gap-4 border-b border-line-dark py-4">
+                    <span className="font-mono text-sm font-bold text-signal">0{i + 1}</span>
+                    <span className="text-sm font-bold uppercase tracking-wide text-paper">
+                      {step.step}
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -138,18 +135,22 @@ export default function ServicesPage() {
       <section aria-labelledby="choose-heading" className="bg-paper">
         <Container narrow className="py-16 sm:py-20">
           <Reveal>
-            <div className="text-center">
-              <h2 id="choose-heading" className="text-2xl font-bold tracking-tight text-ink sm:text-3xl">
+            <div className="border-2 border-ink p-8 text-center hard-shadow sm:p-12">
+              <h2 id="choose-heading" className="stretch-wide text-2xl font-black uppercase tracking-tight text-ink sm:text-4xl">
                 Not sure which service fits?
               </h2>
-              <p className="mx-auto mt-3 max-w-xl leading-relaxed text-muted-foreground">
-                Describe your site and what worries you — we will advise which
+              <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-smoke">
+                Describe your site and what worries you. We will advise which
                 monitoring arrangement makes sense, honestly, before anything is
                 agreed.
               </p>
-              <Button asChild size="lg" className="mt-7 font-semibold">
-                <Link href="/contact?service=not-sure">Help me choose</Link>
-              </Button>
+              <Link
+                href="/contact?service=not-sure"
+                className="group mt-8 inline-flex h-14 items-center justify-center gap-2 border-2 border-ink bg-ink px-8 text-sm font-bold uppercase tracking-wide text-paper transition-colors hover:border-signal hover:bg-signal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                Help me choose
+                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+              </Link>
             </div>
           </Reveal>
         </Container>

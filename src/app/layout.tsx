@@ -1,33 +1,36 @@
 import type { Metadata, Viewport } from "next";
-import { Manrope, Geist_Mono } from "next/font/google";
+import { Archivo, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/site/site-header";
 import { SiteFooter } from "@/components/site/site-footer";
 import { site } from "@/lib/site";
 import { Toaster } from "@/components/ui/toaster";
 
-const manrope = Manrope({
-  variable: "--font-manrope",
+const archivo = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
+  axes: ["wdth"],
   display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const mono = JetBrains_Mono({
+  variable: "--font-mono-brand",
   subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Your Tech Eye | 24/7 Surveillance & Monitoring Solutions",
-    template: "%s — Your Tech Eye",
+    default: "Your Tech Eye | Live CCTV Monitoring by Trained Operators",
+    template: "%s | Your Tech Eye",
   },
   description: site.description,
   keywords: [
     "Your Tech Eye",
     "CCTV monitoring",
-    "24/7 monitoring",
+    "live video monitoring",
     "surveillance solutions",
     "live audio intervention",
     "remote video monitoring",
@@ -39,20 +42,20 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: site.url,
     siteName: site.name,
-    title: "Your Tech Eye | 24/7 Surveillance & Monitoring Solutions",
+    title: "Your Tech Eye | Live CCTV Monitoring by Trained Operators",
     description: site.description,
     images: [
       {
         url: "/brand/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Your Tech Eye — Detect Early. Prevent Instantly.",
+        alt: "Your Tech Eye: live CCTV monitoring with human response",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Your Tech Eye | 24/7 Surveillance & Monitoring Solutions",
+    title: "Your Tech Eye | Live CCTV Monitoring by Trained Operators",
     description: site.description,
     images: ["/brand/og-image.png"],
   },
@@ -68,12 +71,12 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0a1b2e",
+  themeColor: "#161512",
   width: "device-width",
   initialScale: 1,
 };
 
-/** Organization JSON-LD — only verified facts (no address, ratings, or invented fields). */
+/** Organization JSON-LD: verified facts only. */
 function organizationJsonLd() {
   return {
     "@context": "https://schema.org",
@@ -101,7 +104,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${manrope.variable} ${geistMono.variable} flex min-h-screen flex-col font-sans antialiased`}
+        className={`${archivo.variable} ${mono.variable} flex min-h-screen flex-col font-sans antialiased`}
       >
         <script
           type="application/ld+json"

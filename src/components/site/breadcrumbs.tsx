@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export interface Crumb {
@@ -9,26 +8,28 @@ export interface Crumb {
 
 export function Breadcrumbs({ items, className }: { items: Crumb[]; className?: string }) {
   return (
-    <nav aria-label="Breadcrumb" className={cn("text-sm", className)}>
-      <ol className="flex flex-wrap items-center gap-1.5">
+    <nav aria-label="Breadcrumb" className={cn("font-mono text-[11px] uppercase tracking-[0.15em]", className)}>
+      <ol className="flex flex-wrap items-center gap-2">
         {items.map((crumb, i) => {
           const isLast = i === items.length - 1;
           return (
-            <li key={i} className="flex items-center gap-1.5">
+            <li key={i} className="flex items-center gap-2">
               {crumb.href && !isLast ? (
                 <Link
                   href={crumb.href}
-                  className="font-medium text-muted-foreground transition-colors hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  className="text-smoke transition-colors hover:text-signal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 >
                   {crumb.label}
                 </Link>
               ) : (
-                <span className="font-medium text-ink" aria-current={isLast ? "page" : undefined}>
+                <span className="font-bold text-ink" aria-current={isLast ? "page" : undefined}>
                   {crumb.label}
                 </span>
               )}
               {!isLast && (
-                <ChevronRight className="h-3.5 w-3.5 text-muted-foreground/70" aria-hidden="true" />
+                <span className="text-signal" aria-hidden="true">
+                  /
+                </span>
               )}
             </li>
           );

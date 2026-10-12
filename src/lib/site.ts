@@ -10,7 +10,7 @@ export const site = {
   tagline: "Detect Early. Prevent Instantly.",
   url: "https://yourtecheye.com",
   description:
-    "Your Tech Eye provides 24/7 CCTV and surveillance monitoring with real human response — live threat detection, audio intervention, and escalation to help protect businesses, properties, and families.",
+    "Live CCTV monitoring with real human response. Your Tech Eye watches your cameras, verifies threats in real time, intervenes through on-site audio, and escalates fast: for businesses, properties, and families.",
   contact: {
     phone: "+8801780145132",
     phoneHref: "tel:+8801780145132",

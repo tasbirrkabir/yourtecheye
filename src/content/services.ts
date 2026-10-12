@@ -15,10 +15,10 @@ export interface ServiceFaq {
 }
 
 export interface Service {
-  slug: string; // legacy URL slug — routes are served at root level to preserve them
+  slug: string; // legacy URL slug, routes are served at root level to preserve them
   title: string;
   navTitle: string;
-  summary: string; // card copy — verified from official service listing
+  summary: string; // card copy, verified from official service listing
   tagline: string; // short benefit line shown on cards (from official copy)
   hero: string; // service-detail hero paragraph
   metaTitle: string;
@@ -42,8 +42,8 @@ export const services: Service[] = [
     summary:
       "Reliable live CCTV monitoring solutions to keep your business, property, and operations protected at all times.",
     tagline: "Real humans watching your cameras",
-    hero: "Live CCTV monitoring means your cameras are not just recording — they are being watched. Your Tech Eye keeps trained eyes on your feeds so that suspicious activity is noticed and verified while it is happening, not discovered on footage afterwards.",
-    metaTitle: "Surveillance & CCTV Monitoring — Your Tech Eye",
+    hero: "Live CCTV monitoring means your cameras are not just recording, they are being watched. Your Tech Eye keeps trained eyes on your feeds so that suspicious activity is noticed and verified while it is happening, not discovered on footage afterwards.",
+    metaTitle: "Surveillance & CCTV Monitoring",
     metaDescription:
       "Live CCTV monitoring with real-time threat verification, intrusion detection, remote access and incident reporting for businesses and properties.",
     image: "/media/monitoring-operator-wall.webp",
@@ -68,7 +68,7 @@ export const services: Service[] = [
       {
         title: "Remote surveillance access",
         detail:
-          "Secure access to your cameras anytime, anywhere — from mobile, tablet, or PC.",
+          "Secure access to your cameras anytime, anywhere, from mobile, tablet, or PC.",
       },
       {
         title: "Incident reporting",
@@ -80,17 +80,17 @@ export const services: Service[] = [
       {
         question: "Do you replace my existing cameras?",
         answer:
-          "No. Your Tech Eye integrates with your existing CCTV system or installs a complete monitoring solution where needed — most existing setups do not need replacement.",
+          "No. Your Tech Eye integrates with your existing CCTV system or installs a complete monitoring solution where needed, most existing setups do not need replacement.",
       },
       {
         question: "Is monitoring really 24/7?",
         answer:
-          "Yes. Continuous 24-hour monitoring, day and night, is the core of the service.",
+          "Yes. Continuous monitoring is the core of the service: your site stays under live watch every hour of every day.",
       },
       {
         question: "What happens if something is spotted on my property?",
         answer:
-          "Suspicious activity is verified by a human, and the agreed response follows: live audio warnings, alerts to your team, or escalation — based on the plan set up for your site.",
+          "Suspicious activity is verified by a human, and the agreed response follows: live audio warnings, alerts to your team, or escalation, based on the plan set up for your site.",
       },
     ],
     sourceUrl: "https://yourtecheye.com/surveillance-cctv-monitoring/",
@@ -104,8 +104,8 @@ export const services: Service[] = [
     summary:
       "Stop threats before they escalate with live speaker warnings and instant intervention.",
     tagline: "A voice on site, before things escalate",
-    hero: "Most intruders want an easy target. Live audio intervention puts a real human voice on your site at the moment it matters — through on-site speakers, a trained operator can deliver real-time verbal warnings that deter intruders and interrupt suspicious activity before it turns into loss or damage.",
-    metaTitle: "Live Audio Intervention — Your Tech Eye",
+    hero: "Most intruders want an easy target. Live audio intervention puts a real human voice on your site at the moment it matters, through on-site speakers, a trained operator can deliver real-time verbal warnings that deter intruders and interrupt suspicious activity before it turns into loss or damage.",
+    metaTitle: "Live Audio Intervention",
     metaDescription:
       "Live audio intervention delivers real-time verbal warnings through on-site speakers to deter intruders and interrupt threats as they happen.",
     image: "/media/dome-camera-detail.webp",
@@ -115,7 +115,7 @@ export const services: Service[] = [
       {
         title: "Real-time verbal warnings",
         detail:
-          "When monitoring operators spot suspicious activity, they can speak through on-site speakers immediately — no recording, no delay.",
+          "When monitoring operators spot suspicious activity, they can speak through on-site speakers immediately, no recording, no delay.",
       },
       {
         title: "Intruder deterrence",
@@ -125,7 +125,7 @@ export const services: Service[] = [
       {
         title: "Active threat interruption",
         detail:
-          "Intervention happens during the incident, not after — while the situation can still be stopped or slowed.",
+          "Intervention happens during the incident, not after, while the situation can still be stopped or slowed.",
       },
       {
         title: "Remote communication systems",
@@ -144,7 +144,7 @@ export const services: Service[] = [
       {
         question: "Does my site need special equipment?",
         answer:
-          "Yes — live audio warnings require speakers connected to the monitoring system. If your site does not have audio hardware, YTE can include it in a monitoring solution, and incidents follow the standard escalation process in the meantime.",
+          "Yes, live audio warnings require speakers connected to the monitoring system. If your site does not have audio hardware, YTE can include it in a monitoring solution, and incidents follow the standard escalation process in the meantime.",
       },
       {
         question: "Does the voice warning replace calling the authorities?",
@@ -164,9 +164,9 @@ export const services: Service[] = [
       "Instant alerts, escalation, and coordination with authorities when needed.",
     tagline: "Escalation that starts in seconds, not hours",
     hero: "When monitoring detects a verified incident, what happens next matters most. Emergency response turns a detected threat into an organised reaction: immediate alerts, escalation along an agreed plan, and coordination with the relevant authorities when the situation calls for it.",
-    metaTitle: "Emergency Response & Escalation — Your Tech Eye",
+    metaTitle: "Emergency Response & Escalation",
     metaDescription:
-      "When monitoring detects an incident: instant alerts, escalation, and coordination with authorities when needed — fast action during emergencies.",
+      "When monitoring detects an incident: instant alerts, escalation, and coordination with authorities when needed, fast action during emergencies.",
     image: "/media/parking-garage-night.webp",
     imageAlt: "Multi-level parking garage illuminated at night",
     features: [
@@ -178,7 +178,7 @@ export const services: Service[] = [
       {
         title: "Real-time incident response",
         detail:
-          "Response starts while the incident is unfolding — alerts, live warnings, and escalation are triggered in real time.",
+          "Response starts while the incident is unfolding, alerts, live warnings, and escalation are triggered in real time.",
       },
       {
         title: "Security breach alerts",
@@ -193,7 +193,7 @@ export const services: Service[] = [
       {
         title: "Fast action during emergencies",
         detail:
-          "Clear roles and pre-agreed steps remove hesitation — the plan is already in place before anything happens.",
+          "Clear roles and pre-agreed steps remove hesitation, the plan is already in place before anything happens.",
       },
     ],
     scopeNote:
@@ -202,12 +202,12 @@ export const services: Service[] = [
       {
         question: "Does emergency response mean you call the police?",
         answer:
-          "Where an incident genuinely requires it, YTE coordinates with the relevant authorities as part of your agreed escalation plan. The exact steps — who is contacted and in what order — are defined with you during setup, not improvised during an incident.",
+          "Where an incident genuinely requires it, YTE coordinates with the relevant authorities as part of your agreed escalation plan. The exact steps, who is contacted and in what order, are defined with you during setup, not improvised during an incident.",
       },
       {
         question: "Who gets alerted when something happens?",
         answer:
-          "The contacts nominated in your escalation plan — for example keyholders, site managers, or owners — receive alerts when a breach is verified.",
+          "The contacts nominated in your escalation plan, for example keyholders, site managers, or owners, receive alerts when a breach is verified.",
       },
       {
         question: "How is an incident verified before escalation?",
@@ -226,8 +226,8 @@ export const services: Service[] = [
     summary:
       "Professional review and analysis of recorded CCTV footage to identify important events and suspicious activity.",
     tagline: "Answers found in your recordings",
-    hero: "When you need to know what actually happened — last night, last week, or last month — playback footage monitoring turns hours of recordings into clear findings. Trained reviewers go through your recorded CCTV footage to identify important events, track specific incidents, and document what the cameras saw.",
-    metaTitle: "Playback Footage Monitoring & Analysis — Your Tech Eye",
+    hero: "When you need to know what actually happened, last night, last week, or last month, playback footage monitoring turns hours of recordings into clear findings. Trained reviewers go through your recorded CCTV footage to identify important events, track specific incidents, and document what the cameras saw.",
+    metaTitle: "Playback Footage Monitoring & Analysis",
     metaDescription:
       "Professional review and analysis of recorded CCTV footage: incident investigation, event tracking, evidence documentation and security reporting.",
     image: "/media/monitoring-room-illustrative.webp",
@@ -242,7 +242,7 @@ export const services: Service[] = [
       {
         title: "Event tracking",
         detail:
-          "Systematic review to find specific events — arrivals, deliveries, movements, or suspicious activity — across your recordings.",
+          "Systematic review to find specific events, arrivals, deliveries, movements, or suspicious activity, across your recordings.",
       },
       {
         title: "Suspicious behavior review",
@@ -264,7 +264,7 @@ export const services: Service[] = [
       {
         question: "Can you review footage from an incident that already happened?",
         answer:
-          "Yes. Playback monitoring works with your recorded CCTV footage — provide the time window and context, and the relevant recordings are reviewed and reported.",
+          "Yes. Playback monitoring works with your recorded CCTV footage, provide the time window and context, and the relevant recordings are reviewed and reported.",
       },
       {
         question: "What do I receive after a review?",
@@ -274,7 +274,7 @@ export const services: Service[] = [
       {
         question: "Is this a substitute for live monitoring?",
         answer:
-          "No — playback review looks at recordings after the fact, while live monitoring watches cameras in real time. Many sites use both: live monitoring for prevention, playback for investigation and follow-up.",
+          "No, playback review looks at recordings after the fact, while live monitoring watches cameras in real time. Many sites use both: live monitoring for prevention, playback for investigation and follow-up.",
       },
     ],
     sourceUrl: "https://yourtecheye.com/playback-footage-monitoring/",
@@ -287,18 +287,18 @@ export function getService(slug: string): Service | undefined {
   return services.find((s) => s.slug === slug);
 }
 
-/** Surveillance & Security Solutions — the legacy "solutions" page (verified 2026-10-12). */
+/** Surveillance & Security Solutions, the legacy "solutions" page (verified 2026-10-12). */
 export const solutionsPage = {
   title: "Surveillance & Security Solutions",
-  metaTitle: "Surveillance & Security Solutions — Your Tech Eye",
+  metaTitle: "Surveillance & Security Solutions",
   metaDescription:
     "End-to-end surveillance solutions: 24/7 real-time video monitoring, HD/4K cameras, remote access, motion alerts, secure storage and expert support for homes, offices, shops and warehouses.",
   intro:
-    "Surveillance & Security Solutions covers the systems behind the monitoring: cameras, recording, alerts, and access. Whether YTE connects to your existing CCTV or supplies a complete setup, the goal is the same — a surveillance system that is watched, maintained, and ready to evidence what it sees.",
+    "Surveillance & Security Solutions covers the systems behind the monitoring: cameras, recording, alerts, and access. Whether YTE connects to your existing CCTV or supplies a complete setup, the goal is the same, a surveillance system that is watched, maintained, and ready to evidence what it sees.",
   capabilities: [
     {
       title: "24/7 real-time video monitoring",
-      detail: "Cameras watched live around the clock by trained monitoring staff.",
+      detail: "Cameras watched live by trained monitoring staff, every hour of every day.",
     },
     {
       title: "High-definition camera quality",
@@ -306,7 +306,7 @@ export const solutionsPage = {
     },
     {
       title: "Remote access",
-      detail: "View your cameras from mobile, tablet, or PC — securely, anytime.",
+      detail: "View your cameras from mobile, tablet, or PC, securely, anytime.",
     },
     {
       title: "Motion detection alerts",
@@ -315,7 +315,7 @@ export const solutionsPage = {
     },
     {
       title: "Secure cloud or local storage",
-      detail: "Footage is stored the way that suits your site — cloud or on-site.",
+      detail: "Footage is stored the way that suits your site, cloud or on-site.",
     },
     {
       title: "Straightforward installation",
@@ -324,7 +324,7 @@ export const solutionsPage = {
     },
     {
       title: "Continuous recording",
-      detail: "Continuous recording for maximum security coverage, day and night.",
+      detail: "Continuous recording for maximum security coverage, every hour of every day.",
     },
     {
       title: "Wide site coverage",
@@ -342,9 +342,9 @@ export const howItWorks = [
       "We integrate with your existing CCTV system or install a complete monitoring solution tailored to your site. No replacement is needed for most existing setups.",
   },
   {
-    step: "24/7 monitoring activated",
+    step: "Monitoring goes live",
     detail:
-      "Your site is placed under continuous live surveillance with real-time monitoring and active supervision. Always on.",
+      "Your site is placed under continuous live surveillance with real-time monitoring and active supervision. Every hour of every day.",
   },
   {
     step: "Threat detection & verification",
@@ -369,7 +369,7 @@ export const useCases = [
     name: "Retail & grocery stores",
     need: "Theft, product damage, and operational losses are constant pressures on store margins.",
     benefit:
-      "Intelligent retail surveillance keeps floors, tills, and stockrooms visible — with live verification when something looks wrong.",
+      "Intelligent retail surveillance keeps floors, tills, and stockrooms visible, with live verification when something looks wrong.",
     href: "/surveillance-cctv-monitoring",
   },
   {
@@ -381,7 +381,7 @@ export const useCases = [
   },
   {
     name: "Homes & private property",
-    need: "Families want to know home is being watched — whether they are home or away.",
+    need: "Families want to know home is being watched, whether they are home or away.",
     benefit:
       "Smart home surveillance and monitoring designed to help protect your property, family, and peace of mind.",
     href: "/surveillance-cctv-monitoring",
@@ -402,7 +402,7 @@ export const useCases = [
   },
 ] as const;
 
-/** Trust strip facts — all verifiable from the official site. */
+/** Trust strip facts, all verifiable from the official site. */
 export const trustStrip = [
   { title: "24/7 coverage", detail: "Always-active monitoring" },
   { title: "Rapid response", detail: "Action within seconds" },
@@ -410,16 +410,16 @@ export const trustStrip = [
   { title: "Total transparency", detail: "Complete client access" },
 ] as const;
 
-/** Hero bullet points — verified from the official homepage. */
+/** Hero bullet points, verified from the official homepage. */
 export const heroPoints = [
-  "Live 24-hour monitoring, day and night",
+  "Live monitoring every hour of every day",
   "Instant threat detection and real-time alerts",
   "Live audio warnings to deter intruders",
   "Rapid human response and escalation",
   "Secure access to your cameras anytime, anywhere",
 ] as const;
 
-/** "Why active monitoring matters" — verified from the official homepage. */
+/** "Why active monitoring matters", verified from the official homepage. */
 export const proactivePoints = [
   "Real humans monitor your cameras",
   "Immediate threat verification",

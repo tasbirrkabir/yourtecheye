@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 
 interface SectionHeadingProps {
   eyebrow?: string;
+  index?: string;
   title: string;
   description?: string;
   align?: "left" | "center";
@@ -9,8 +10,13 @@ interface SectionHeadingProps {
   className?: string;
 }
 
+/**
+ * Brutalist editorial heading: mono kicker with index, then a huge
+ * uppercase display title set in expanded Archivo Black.
+ */
 export function SectionHeading({
   eyebrow,
+  index,
   title,
   description,
   align = "left",
@@ -20,7 +26,7 @@ export function SectionHeading({
   return (
     <div
       className={cn(
-        "max-w-2xl",
+        "max-w-3xl",
         align === "center" && "mx-auto text-center",
         className
       )}
@@ -28,17 +34,20 @@ export function SectionHeading({
       {eyebrow ? (
         <p
           className={cn(
-            "mb-3 text-sm font-semibold uppercase tracking-[0.14em]",
-            tone === "dark" ? "text-[#7db8e0]" : "text-brand-strong"
+            "mb-4 flex items-center gap-2.5 font-mono text-[11px] font-bold uppercase tracking-[0.25em] sm:text-xs",
+            align === "center" && "justify-center",
+            tone === "dark" ? "text-signal" : "text-ink"
           )}
         >
-          {eyebrow}
+          <span className="inline-block h-2 w-2 bg-signal" aria-hidden="true" />
+          {index ? <span>{index} /</span> : null}
+          <span>{eyebrow}</span>
         </p>
       ) : null}
       <h2
         className={cn(
-          "text-balance text-3xl font-bold leading-[1.15] tracking-tight sm:text-4xl",
-          tone === "dark" ? "text-white" : "text-ink"
+          "stretch-wide text-balance text-3xl font-black uppercase leading-[1.02] tracking-tight sm:text-4xl lg:text-5xl",
+          tone === "dark" ? "text-paper" : "text-ink"
         )}
       >
         {title}
@@ -46,8 +55,9 @@ export function SectionHeading({
       {description ? (
         <p
           className={cn(
-            "mt-4 text-base leading-relaxed sm:text-lg",
-            tone === "dark" ? "text-[#b6c6d8]" : "text-muted-foreground"
+            "mt-5 max-w-2xl text-base leading-relaxed sm:text-lg",
+            align === "center" && "mx-auto",
+            tone === "dark" ? "text-paper/70" : "text-smoke"
           )}
         >
           {description}

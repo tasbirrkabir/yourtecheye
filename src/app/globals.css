@@ -6,8 +6,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-sans: var(--font-archivo), "Archivo", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono-brand), "JetBrains Mono", ui-monospace, monospace;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -37,99 +37,89 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 6px);
 
-  /* YTE brand tokens ("Quiet Confidence", adapted to official logo colours) */
-  --color-ink: var(--ink);
-  --color-ink-soft: var(--ink-soft);
-  --color-ink-line: var(--ink-line);
-  --color-brand: var(--brand);
-  --color-brand-strong: var(--brand-strong);
-  --color-brand-tint: var(--brand-tint);
+  /* YTE "BRUTAL MINIMAL" tokens: bone, ink, one signal color */
   --color-paper: var(--paper);
+  --color-bone: var(--paper);
+  --color-ink: var(--ink);
+  --color-coal: var(--coal);
+  --color-smoke: var(--smoke);
+  --color-signal: var(--signal);
+  --color-signal-deep: var(--signal-deep);
+  --color-line: var(--line);
+  --color-line-dark: var(--line-dark);
+
+  /* Brutalism: no radius anywhere */
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
 }
 
 :root {
-  --radius: 0.75rem;
-
-  /* ---- Your Tech Eye palette (sampled from the official logo) ---- */
-  --ink: #0a1b2e;            /* deep navy — headings, dark sections */
-  --ink-soft: #10273f;       /* dark surfaces */
-  --ink-line: #22374e;       /* separators on dark surfaces */
-  --brand: #1b8bd1;          /* official logo blue — accents, focus */
-  --brand-strong: #0e6fa8;   /* accessible blue for text/actions on light */
-  --brand-tint: #e7f1f9;     /* pale blue wash */
-  --paper: #f6f8fb;          /* main light surface */
+  /* ---- Palette ---- */
+  --paper: #f1efe9;         /* warm bone, main light surface */
+  --ink: #161512;           /* near-black, warm */
+  --coal: #1c1b18;          /* dark surface */
+  --smoke: #6f6a5f;         /* warm gray for secondary text */
+  --signal: #e23a0c;        /* vermilion: one loud accent */
+  --signal-deep: #b32c07;   /* pressed / hover state of signal */
+  --line: #d6d1c4;          /* hairlines on bone */
+  --line-dark: #33312c;     /* hairlines on ink */
 
   /* ---- shadcn token mapping (light) ---- */
   --background: var(--paper);
-  --foreground: #17273b;
-  --card: #ffffff;
-  --card-foreground: #17273b;
-  --popover: #ffffff;
-  --popover-foreground: #17273b;
-  --primary: #0f2540;
-  --primary-foreground: #f8fafc;
-  --secondary: #eaf0f6;
-  --secondary-foreground: #0f2540;
-  --muted: #eef2f7;
-  --muted-foreground: #55677d;
-  --accent: var(--brand-tint);
-  --accent-foreground: #0c5c8c;
-  --destructive: #b42318;
-  --border: #dce3eb;
-  --input: #c9d4e0;
-  --ring: #1b8bd1;
-  --chart-1: #1b8bd1;
-  --chart-2: #0a1b2e;
-  --chart-3: #67a9d8;
-  --chart-4: #0e6fa8;
-  --chart-5: #8fb8d9;
-  --sidebar: #ffffff;
-  --sidebar-foreground: #17273b;
-  --sidebar-primary: #0f2540;
-  --sidebar-primary-foreground: #f8fafc;
-  --sidebar-accent: var(--brand-tint);
-  --sidebar-accent-foreground: #0c5c8c;
-  --sidebar-border: #dce3eb;
-  --sidebar-ring: #1b8bd1;
+  --foreground: var(--ink);
+  --card: var(--paper);
+  --card-foreground: var(--ink);
+  --popover: var(--paper);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--paper);
+  --secondary: #e6e2d8;
+  --secondary-foreground: var(--ink);
+  --muted: #e6e2d8;
+  --muted-foreground: var(--smoke);
+  --accent: var(--signal);
+  --accent-foreground: var(--paper);
+  --destructive: var(--signal);
+  --border: var(--line);
+  --input: #c9c3b4;
+  --ring: var(--signal);
+  --chart-1: var(--signal);
+  --chart-2: var(--ink);
+  --chart-3: var(--smoke);
+  --chart-4: var(--signal-deep);
+  --chart-5: #a49c8c;
+  --sidebar: var(--paper);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--ink);
+  --sidebar-primary-foreground: var(--paper);
+  --sidebar-accent: var(--signal);
+  --sidebar-accent-foreground: var(--paper);
+  --sidebar-border: var(--line);
+  --sidebar-ring: var(--signal);
 }
 
 .dark {
-  --background: #0a1b2e;
-  --foreground: #e8eef5;
-  --card: #10273f;
-  --card-foreground: #e8eef5;
-  --popover: #10273f;
-  --popover-foreground: #e8eef5;
-  --primary: #67a9d8;
-  --primary-foreground: #0a1b2e;
-  --secondary: #16304b;
-  --secondary-foreground: #e8eef5;
-  --muted: #16304b;
-  --muted-foreground: #9db1c7;
-  --accent: #16304b;
-  --accent-foreground: #cfe4f5;
-  --destructive: #ef6a5e;
-  --border: #22374e;
-  --input: #2a4159;
-  --ring: #1b8bd1;
-  --chart-1: #67a9d8;
-  --chart-2: #e8eef5;
-  --chart-3: #1b8bd1;
-  --chart-4: #8fb8d9;
-  --chart-5: #cfe4f5;
-  --sidebar: #10273f;
-  --sidebar-foreground: #e8eef5;
-  --sidebar-primary: #67a9d8;
-  --sidebar-primary-foreground: #0a1b2e;
-  --sidebar-accent: #16304b;
-  --sidebar-accent-foreground: #cfe4f5;
-  --sidebar-border: #22374e;
-  --sidebar-ring: #1b8bd1;
+  --background: var(--ink);
+  --foreground: var(--paper);
+  --card: var(--coal);
+  --card-foreground: var(--paper);
+  --popover: var(--coal);
+  --popover-foreground: var(--paper);
+  --primary: var(--paper);
+  --primary-foreground: var(--ink);
+  --secondary: var(--line-dark);
+  --secondary-foreground: var(--paper);
+  --muted: var(--line-dark);
+  --muted-foreground: #a39d90;
+  --accent: var(--signal);
+  --accent-foreground: var(--paper);
+  --destructive: var(--signal);
+  --border: var(--line-dark);
+  --input: var(--line-dark);
+  --ring: var(--signal);
 }
 
 @layer base {
@@ -156,8 +146,8 @@
     font-feature-settings: "ss01" on;
   }
   ::selection {
-    background: #1b8bd1;
-    color: #ffffff;
+    background: var(--signal);
+    color: var(--paper);
   }
 }
 
@@ -170,19 +160,92 @@
   }
   .scrollbar-slim {
     scrollbar-width: thin;
-    scrollbar-color: #c9d4e0 transparent;
+    scrollbar-color: #c9c3b4 transparent;
   }
   .scrollbar-slim::-webkit-scrollbar {
     width: 6px;
     height: 6px;
   }
   .scrollbar-slim::-webkit-scrollbar-thumb {
-    background: #c9d4e0;
-    border-radius: 999px;
+    background: #c9c3b4;
+  }
+
+  /* Expanded display type (brutalist headlines) */
+  .stretch-wide {
+    font-stretch: 110%;
+  }
+  .stretch-xwide {
+    font-stretch: 125%;
+  }
+  .stretch-narrow {
+    font-stretch: 75%;
+  }
+
+  /* Hard offset shadow, brutalism staple */
+  .hard-shadow {
+    box-shadow: 6px 6px 0 0 var(--ink);
+  }
+  .hard-shadow-sm {
+    box-shadow: 4px 4px 0 0 var(--ink);
+  }
+  .hard-shadow-signal {
+    box-shadow: 6px 6px 0 0 var(--signal);
+  }
+
+  /* Outlined display text */
+  .text-stroke-ink {
+    -webkit-text-stroke: 1.5px var(--ink);
+    color: transparent;
+  }
+  .text-stroke-paper {
+    -webkit-text-stroke: 1.5px var(--paper);
+    color: transparent;
+  }
+
+  /* Editorial photo treatment: mono by default, color on hover */
+  .photo-brutal {
+    filter: grayscale(1) contrast(1.06);
+    transition: filter 0.45s ease, transform 0.45s ease;
+  }
+  .group:hover .photo-brutal,
+  .photo-brutal:hover {
+    filter: grayscale(0) contrast(1);
+  }
+
+  /* Marquee */
+  .marquee-track {
+    animation: marquee 32s linear infinite;
+  }
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Blinking REC indicator */
+  .rec-blink {
+    animation: recblink 1.4s steps(2, start) infinite;
+  }
+  @keyframes recblink {
+    to {
+      visibility: hidden;
+    }
   }
 }
 
-/* Subtle scroll reveal — motion only for users who allow it */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+  .rec-blink {
+    animation: none;
+  }
+}
+
+/* Subtle scroll reveal */
 .reveal {
   opacity: 0;
   transform: translateY(14px);
