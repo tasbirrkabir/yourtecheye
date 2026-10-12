@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+/// Enquiries submitted through the public contact form.
+/// Submissions are always stored here so no lead is silently lost;
+/// email forwarding happens on top when delivery credentials are configured.
+model ContactSubmission {
+  id           String   @id @default(cuid())
+  name         String
+  organization String?
+  email        String?
+  phone        String?
+  service      String?
+  siteLocation String?
+  message      String
+  emailSent    Boolean  @default(false)
+  ipHash       String?  // hashed client IP for rate limiting/audit — never the raw IP
+  userAgent    String?
+  createdAt    DateTime @default(now())
+}
