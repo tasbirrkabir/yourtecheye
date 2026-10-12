@@ -17,6 +17,14 @@ const contactSchema = z
     email: z.string().trim().toLowerCase().max(200).optional().default(""),
     phone: z.string().trim().max(40).optional().default(""),
     service: z.string().trim().max(80).optional().default(""),
+    contactMethod: z
+      .enum(["email", "phone", "either"], {
+        message: "Unknown contact method selected.",
+      })
+      .optional()
+      .default("either"),
+    cameraCount: z.string().trim().max(40).optional().default(""),
+    timeframe: z.string().trim().max(40).optional().default(""),
     siteLocation: z.string().trim().max(160).optional().default(""),
     message: z
       .string()
@@ -59,6 +67,14 @@ const contactSchema = z
     if (data.service && !validServices.includes(data.service)) {
       ctx.addIssue({ code: "custom", path: ["service"], message: "Unknown service selected." });
     }
+    const validCameraCounts = ["1-4", "5-8", "9-16", "17-plus", "not-installed", "unsure"];
+    if (data.cameraCount && !validCameraCounts.includes(data.cameraCount)) {
+      ctx.addIssue({ code: "custom", path: ["cameraCount"], message: "Unknown camera range selected." });
+    }
+    const validTimeframes = ["immediately", "1-month", "1-3-months", "exploring"];
+    if (data.timeframe && !validTimeframes.includes(data.timeframe)) {
+      ctx.addIssue({ code: "custom", path: ["timeframe"], message: "Unknown timeframe selected." });
+    }
   });
 
 /* ------------------------------------------------------------------ */
@@ -97,24 +113,32 @@ async function emailDeliver(payload: {
   email: string;
   phone: string;
   service: string;
+  contactMethod: string;
+  cameraCount: string;
+  timeframe: string;
   siteLocation: string;
   message: string;
+  ref: string;
 }): Promise<boolean> {
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.CONTACT_TO_EMAIL;
   if (!apiKey || !to) return false; // delivery not configured, handled honestly below
 
   const lines = [
+    `Enquiry reference: ${payload.ref}`,
     `Name: ${payload.name}`,
     `Organisation: ${payload.organization || "not provided"}`,
     `Email: ${payload.email || "not provided"}`,
     `Phone: ${payload.phone || "not provided"}`,
     `Service interest: ${payload.service || "not provided"}`,
+    `Preferred contact method: ${payload.contactMethod || "not provided"}`,
+    `Cameras on site: ${payload.cameraCount || "not provided"}`,
+    `Desired start: ${payload.timeframe || "not provided"}`,
     `Site location: ${payload.siteLocation || "not provided"}`,
     "",
     payload.message,
   ];
-  const subject = `Website enquiry: ${payload.name}${payload.organization ? ` (${payload.organization})` : ""}`;
+  const subject = `[${payload.ref}] Website enquiry: ${payload.name}${payload.organization ? ` (${payload.organization})` : ""}`;
 
   try {
     const res = await fetch("https://api.resend.com/emails", {
@@ -193,7 +217,10 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  // Store first: a lead must never be silently lost.
+  // Store first: a lead must never be silently lost. A short human-readable
+  // reference is generated so the enquirer and the owner can refer to the same enquiry.
+  const ref = `YTE-${Date.now().toString(36).toUpperCase().slice(-6)}`;
+
   let stored = false;
   try {
     await db.contactSubmission.create({
@@ -203,6 +230,9 @@ export async function POST(req: NextRequest) {
         email: data.email || null,
         phone: data.phone || null,
         service: data.service || null,
+        contactMethod: data.contactMethod || null,
+        cameraCount: data.cameraCount || null,
+        timeframe: data.timeframe || null,
         siteLocation: data.siteLocation || null,
         message: data.message,
         ipHash,
@@ -214,7 +244,7 @@ export async function POST(req: NextRequest) {
     console.error("[contact] failed to store submission", err);
   }
 
-  const emailed = await emailDeliver(data);
+  const emailed = await emailDeliver({ ...data, ref });
   if (emailed && stored) {
     try {
       await db.contactSubmission.updateMany({
@@ -246,6 +276,7 @@ export async function POST(req: NextRequest) {
     ok: true,
     stored,
     emailed,
+    ref,
     // Honest status surfaced to the owner/ops, not the visitor:
     note: emailed
       ? "delivered to inbox and stored"

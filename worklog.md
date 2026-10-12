@@ -62,3 +62,21 @@ Stage Summary:
 - The site now has a distinctive brutalist-minimal identity that does not read as a template: warm bone paper, raw ink borders, expanded Archivo display caps, JetBrains Mono metadata, one vermilion signal color, zero rounded corners.
 - Media library: 26 webp photos + 1 webm video loop, all catalogued in MEDIA_CREDITS.md (some re-hosted items flagged "verify before commercial launch" for the owner).
 - All 11 routes live and verified in browser; lint clean; no runtime errors in dev.log.
+---
+Task ID: 14
+Agent: Z.ai Code (main)
+Task: Delivery-readiness pass: all legal pages, upgraded contact form, FAQ page, full navigation wiring, and browser-verified QA.
+
+Work Log:
+- Built shared LegalPage component (document header with last-updated/applies-to/governing-law strip, numbered contents TOC, hard-bordered document body, definition grids, highlighted notes, cross-links to sibling legal docs + contact).
+- Created 4 legal pages: /terms (Terms of Service: website terms, service-agreement framework, client responsibilities incl. lawful camera placement, liability limits, Bangladesh governing law), /privacy (full policy replacing the pre-launch draft: controller details, what we collect incl. new form fields, legal basis, retention, processors, rights, surveillance-data note, media credits), /cookies (no-tracking policy, strictly-necessary-only storage table, browser control guidance), /disclaimer (no guarantee of incident prevention, 999 emergency note, illustrative media, external links). All copy free of em dashes.
+- Upgraded contact form: numbered fieldsets (01 about you / 02 how we reach you / 03 about the site / 04 message), new fields (preferred contact method radio, cameras-on-site select with 6 ranges, monitoring start timeframe select), on-blur inline validation, live character counter (4000 cap), consent links to /privacy, brutal hard-bordered styling, upgraded success panel with enquiry reference (YTE-XXXXXX) and what-happens-next steps.
+- Backend: Prisma ContactSubmission + contactMethod/cameraCount/timeframe columns (db:push done); zod schema validates the new enums; email body + subject include reference; API returns ref shown in success panel.
+- Added /faq page: 4 categorised sections (service basics, setup and equipment, detection and response, getting started), 17 grounded Q&As via faqCategories in faq.ts, FAQPage JSON-LD, ink still-have-a-question block; homepage FAQ section gained an "All questions, answered" button linking to /faq.
+- Navigation wiring: header desktop + mobile nav now include FAQ; Services active-state fixed to only light up on services/solutions/service detail pages; footer Index gained FAQ; new footer Legal nav row (Terms, Privacy, Cookies, Disclaimer); sitemap.ts extended to 14 URLs; layout html gained data-scroll-behavior="smooth" (removes Next.js console warning).
+- Browser QA (1440x900 + 390x844): all 15 routes 200 (404 for unknown); form E2E: empty submit shows numbered-fieldset inline errors + focus management; full submission stores contactMethod=email, cameraCount=5-8, siteLocation, message in SQLite and success panel shows reference; timeframe select verified selecting "Within a month"; accordions toggle; mobile menu open/close/FAQ navigation; services dropdown opens via keyboard focus; legal cross-links resolve; no console errors; lint exit 0; test record removed from DB.
+
+Stage Summary:
+- Site is delivery-ready: 15 routes (home, about, services, 4 service detail, solutions, FAQ, contact, terms, privacy, cookies, disclaimer, 404, sitemap/robots), all legal pages live with Bangladesh governing law and honest disclaimers.
+- Contact form now pre-qualifies leads (cameras, timeframe, preferred channel) and every submission gets a reference number; delivery remains DB-first with optional Resend email (owner must set RESEND_API_KEY + CONTACT_TO_EMAIL before launch).
+- Owner items before public launch: confirm legal copy with counsel, configure email delivery env vars, review MEDIA_CREDITS.md re-hosted items.

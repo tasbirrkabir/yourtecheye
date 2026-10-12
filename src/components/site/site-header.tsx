@@ -51,10 +51,12 @@ export function SiteHeader() {
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
+  // Services only lights up on the services index, the four service detail
+  // pages, and the solutions page: never on FAQ or legal pages.
   const serviceActive =
-    pathname !== "/" &&
-    pathname !== "/about" &&
-    pathname !== "/contact";
+    pathname === "/services" ||
+    pathname === "/surveillance-security-solutions" ||
+    services.some((s) => pathname.startsWith(`/${s.slug}`));
 
   return (
     <header className="sticky top-0 z-50 w-full">
@@ -141,6 +143,10 @@ export function SiteHeader() {
                 </Link>
               </div>
             </div>
+
+            <Link href="/faq" className={cn(navLink, isActive("/faq") && "text-signal")} aria-current={isActive("/faq") ? "page" : undefined}>
+              FAQ
+            </Link>
 
             <Link href="/contact" className={cn(navLink, isActive("/contact") && "text-signal")} aria-current={isActive("/contact") ? "page" : undefined}>
               Contact
@@ -239,6 +245,13 @@ export function SiteHeader() {
               Surveillance &amp; Security Solutions
             </Link>
           </div>
+          <Link
+            href="/faq"
+            className="border-b border-line-dark py-4 text-2xl font-black uppercase tracking-tight text-paper hover:text-signal"
+            aria-current={isActive("/faq") ? "page" : undefined}
+          >
+            FAQ
+          </Link>
           <Link
             href="/contact"
             className="border-b border-line-dark py-4 text-2xl font-black uppercase tracking-tight text-paper hover:text-signal"

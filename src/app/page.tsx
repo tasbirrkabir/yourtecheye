@@ -496,6 +496,17 @@ export default function HomePage() {
               <FaqAccordion items={homeFaqs} />
             </div>
           </Reveal>
+          <Reveal delay={120}>
+            <div className="mt-8 text-center">
+              <Link
+                href="/faq"
+                className="group inline-flex items-center gap-2 border-2 border-ink px-5 py-2.5 text-sm font-black uppercase tracking-[0.12em] text-ink transition-colors hover:bg-ink hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                All questions, answered
+                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+              </Link>
+            </div>
+          </Reveal>
         </Container>
       </section>
 

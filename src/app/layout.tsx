@@ -102,7 +102,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
       <body
         className={`${archivo.variable} ${mono.variable} flex min-h-screen flex-col font-sans antialiased`}
       >

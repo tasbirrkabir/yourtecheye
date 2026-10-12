@@ -30,8 +30,8 @@ export function SiteFooter() {
                 { href: "/", label: "Home" },
                 { href: "/about", label: "About" },
                 { href: "/services", label: "Services" },
+                { href: "/faq", label: "FAQ" },
                 { href: "/contact", label: "Contact" },
-                { href: "/privacy", label: "Privacy" },
               ].map((l) => (
                 <li key={l.href}>
                   <Link
@@ -102,10 +102,29 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-line-dark pt-6 font-mono text-[10px] uppercase tracking-[0.15em] text-paper/50 sm:flex-row sm:items-center sm:justify-between sm:text-[11px]">
-          <p>
-            &copy; {year} {site.name}. All rights reserved.
-          </p>
+        <div className="mt-12 flex flex-col gap-4 border-t border-line-dark pt-6 font-mono text-[10px] uppercase tracking-[0.15em] text-paper/50 sm:text-[11px]">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <p>
+              &copy; {year} {site.name}. All rights reserved.
+            </p>
+            {/* Legal row */}
+            <nav aria-label="Legal" className="flex flex-wrap gap-x-5 gap-y-2">
+              {[
+                { href: "/terms", label: "Terms of Service" },
+                { href: "/privacy", label: "Privacy Policy" },
+                { href: "/cookies", label: "Cookie Policy" },
+                { href: "/disclaimer", label: "Disclaimer" },
+              ].map((l) => (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  className="font-bold uppercase tracking-[0.15em] text-paper/70 transition-colors hover:text-signal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                >
+                  {l.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
           <p className="max-w-xl normal-case tracking-normal">
             Photography is licensed stock or public-archive material used
             illustratively. See{" "}

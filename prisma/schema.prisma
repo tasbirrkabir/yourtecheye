@@ -17,6 +17,9 @@ model ContactSubmission {
   email        String?
   phone        String?
   service      String?
+  contactMethod String? // preferred reply channel chosen by the enquirer
+  cameraCount  String?  // rough camera count range for pre-qualification
+  timeframe    String?  // how soon the enquirer wants monitoring live
   siteLocation String?
   message      String
   emailSent    Boolean  @default(false)
