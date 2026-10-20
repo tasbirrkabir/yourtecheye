@@ -3,6 +3,7 @@ import { FileText } from "lucide-react";
 import { Container } from "./container";
 import { Reveal } from "./reveal";
 import { Breadcrumbs } from "./breadcrumbs";
+import { HeroImage } from "./hero-image";
 import { site } from "@/lib/site";
 
 export interface LegalSection {
@@ -35,31 +36,39 @@ export function LegalPage({ title, standfirst, updated, sections }: LegalPagePro
         <Container className="py-12 sm:py-16">
           <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: title }]} />
           <Reveal>
-            <div className="mt-8 max-w-3xl">
-              <p className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.25em] text-smoke">
-                <FileText className="h-4 w-4 text-signal" aria-hidden="true" />
-                Legal document: {site.shortName}
-              </p>
-              <h1 className="stretch-xwide mt-4 text-4xl font-black uppercase leading-[0.95] tracking-tight text-ink sm:text-5xl">
-                {title}
-              </h1>
-              <p className="mt-5 max-w-2xl text-base leading-relaxed text-smoke sm:text-lg">
-                {standfirst}
-              </p>
-              <dl className="mt-6 flex flex-wrap gap-x-10 gap-y-2 border-2 border-ink px-4 py-3 font-mono text-[11px] uppercase tracking-[0.15em] text-smoke">
-                <div className="flex gap-2">
-                  <dt className="font-bold text-ink">Last updated:</dt>
-                  <dd>{updated}</dd>
-                </div>
-                <div className="flex gap-2">
-                  <dt className="font-bold text-ink">Applies to:</dt>
-                  <dd>{site.url.replace(/^https?:\/\//, "")}</dd>
-                </div>
-                <div className="flex gap-2">
-                  <dt className="font-bold text-ink">Governing law:</dt>
-                  <dd>Bangladesh</dd>
-                </div>
-              </dl>
+            <div className="mt-8 grid items-end gap-10 lg:grid-cols-[1fr_auto] lg:gap-14">
+              <div className="max-w-3xl">
+                <p className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.25em] text-smoke">
+                  <FileText className="h-4 w-4 text-signal" aria-hidden="true" />
+                  Legal document: {site.shortName}
+                </p>
+                <h1 className="stretch-xwide mt-4 text-4xl font-black uppercase leading-[0.95] tracking-tight text-ink sm:text-5xl">
+                  {title}
+                </h1>
+                <p className="mt-5 max-w-2xl text-base leading-relaxed text-smoke sm:text-lg">
+                  {standfirst}
+                </p>
+                <dl className="mt-6 flex flex-wrap gap-x-10 gap-y-2 border-2 border-ink px-4 py-3 font-mono text-[11px] uppercase tracking-[0.15em] text-smoke">
+                  <div className="flex gap-2">
+                    <dt className="font-bold text-ink">Last updated:</dt>
+                    <dd>{updated}</dd>
+                  </div>
+                  <div className="flex gap-2">
+                    <dt className="font-bold text-ink">Applies to:</dt>
+                    <dd>{site.url.replace(/^https?:\/\//, "")}</dd>
+                  </div>
+                  <div className="flex gap-2">
+                    <dt className="font-bold text-ink">Governing law:</dt>
+                    <dd>Bangladesh</dd>
+                  </div>
+                </dl>
+              </div>
+              <HeroImage
+                src="/media/concrete-architecture-bw.webp"
+                alt="Brutalist concrete architecture seen from below against the sky"
+                caption="FIG: TERMS IN FORCE, STRUCTURE HONEST"
+                priority
+              />
             </div>
           </Reveal>
         </Container>

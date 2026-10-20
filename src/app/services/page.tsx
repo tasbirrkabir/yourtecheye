@@ -5,6 +5,7 @@ import { Container } from "@/components/site/container";
 import { SectionHeading } from "@/components/site/section-heading";
 import { Reveal } from "@/components/site/reveal";
 import { ServiceCard } from "@/components/site/service-card";
+import { HeroImage } from "@/components/site/hero-image";
 import { ContactCta } from "@/components/site/contact-cta";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/site/breadcrumbs";
 import { services, howItWorks } from "@/content/services";
@@ -47,20 +48,28 @@ export default function ServicesPage() {
         <Container className="py-12 sm:py-16">
           <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Services" }]} />
           <Reveal>
-            <div className="mt-8 max-w-3xl">
-              <p className="flex items-center gap-2.5 font-mono text-[11px] font-bold uppercase tracking-[0.25em] text-ink sm:text-xs">
-                <span className="inline-block h-2 w-2 bg-signal" aria-hidden="true" />
-                Services
-              </p>
-              <h1 className="stretch-xwide mt-5 text-4xl font-black uppercase leading-[0.95] tracking-tight text-ink sm:text-6xl">
-                Monitoring services built around your site<span className="text-signal">.</span>
-              </h1>
-              <p className="mt-6 max-w-2xl text-base leading-relaxed text-smoke sm:text-lg">
-                Your Tech Eye keeps watch over your cameras, verifies what is
-                seen, and acts while it still matters. Pick the service that
-                matches your problem, or combine them into one complete
-                monitoring arrangement.
-              </p>
+            <div className="mt-8 grid items-end gap-10 lg:grid-cols-[1fr_auto] lg:gap-14">
+              <div className="max-w-3xl">
+                <p className="flex items-center gap-2.5 font-mono text-[11px] font-bold uppercase tracking-[0.25em] text-ink sm:text-xs">
+                  <span className="inline-block h-2 w-2 bg-signal" aria-hidden="true" />
+                  Services
+                </p>
+                <h1 className="stretch-xwide mt-5 text-4xl font-black uppercase leading-[0.95] tracking-tight text-ink sm:text-6xl">
+                  Monitoring services built around your site<span className="text-signal">.</span>
+                </h1>
+                <p className="mt-6 max-w-2xl text-base leading-relaxed text-smoke sm:text-lg">
+                  Your Tech Eye keeps watch over your cameras, verifies what is
+                  seen, and acts while it still matters. Pick the service that
+                  matches your problem, or combine them into one complete
+                  monitoring arrangement.
+                </p>
+              </div>
+              <HeroImage
+                src="/media/cctv-cameras-parapet.webp"
+                alt="Two CCTV cameras mounted on a rooftop parapet under a bright sky"
+                caption="FIG.01: CAMERAS ON WATCH, ROOFTOP PARAPET"
+                priority
+              />
             </div>
           </Reveal>
         </Container>

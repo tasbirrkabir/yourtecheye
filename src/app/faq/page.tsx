@@ -3,6 +3,7 @@ import { CircleHelp } from "lucide-react";
 import { Container } from "@/components/site/container";
 import { Reveal } from "@/components/site/reveal";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
+import { HeroImage } from "@/components/site/hero-image";
 import { FaqAccordion } from "@/components/site/faq-accordion";
 import { ContactCta } from "@/components/site/contact-cta";
 import { faqCategories } from "@/content/faq";
@@ -41,28 +42,36 @@ export default function FaqPage() {
         <Container className="py-12 sm:py-16">
           <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "FAQ" }]} />
           <Reveal>
-            <div className="mt-8 max-w-3xl">
-              <p className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.25em] text-smoke">
-                <CircleHelp className="h-4 w-4 text-signal" aria-hidden="true" />
-                Knowledge base: {site.shortName}
-              </p>
-              <h1 className="stretch-xwide mt-4 text-4xl font-black uppercase leading-[0.95] tracking-tight text-ink sm:text-5xl">
-                Questions, answered straight
-              </h1>
-              <p className="mt-5 max-w-2xl text-base leading-relaxed text-smoke sm:text-lg">
-                Everything people usually ask before putting their site under
-                live monitoring. If your question is not here, call{" "}
-                <a
-                  href={site.contact.phoneHref}
-                  className="font-bold text-ink underline decoration-signal decoration-2 underline-offset-4 hover:text-signal"
-                >
-                  {site.contact.phone}
-                </a>{" "}
-                or send the enquiry form: a human replies, not a autoresponder.
-              </p>
-              <p className="mt-6 inline-block border-2 border-ink px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.15em] text-smoke">
-                Last updated: {UPDATED}
-              </p>
+            <div className="mt-8 grid items-end gap-10 lg:grid-cols-[1fr_auto] lg:gap-14">
+              <div className="max-w-3xl">
+                <p className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.25em] text-smoke">
+                  <CircleHelp className="h-4 w-4 text-signal" aria-hidden="true" />
+                  Knowledge base: {site.shortName}
+                </p>
+                <h1 className="stretch-xwide mt-4 text-4xl font-black uppercase leading-[0.95] tracking-tight text-ink sm:text-5xl">
+                  Questions, answered straight
+                </h1>
+                <p className="mt-5 max-w-2xl text-base leading-relaxed text-smoke sm:text-lg">
+                  Everything people usually ask before putting their site under
+                  live monitoring. If your question is not here, call{" "}
+                  <a
+                    href={site.contact.phoneHref}
+                    className="font-bold text-ink underline decoration-signal decoration-2 underline-offset-4 hover:text-signal"
+                  >
+                    {site.contact.phone}
+                  </a>{" "}
+                  or send the enquiry form: a human replies, not a autoresponder.
+                </p>
+                <p className="mt-6 inline-block border-2 border-ink px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.15em] text-smoke">
+                  Last updated: {UPDATED}
+                </p>
+              </div>
+              <HeroImage
+                src="/media/operator-screens-profile.webp"
+                alt="Monitoring operator seen in profile, watching a wall of screens"
+                caption="FIG.01: OPERATOR ON WATCH, OPS FLOOR"
+                priority
+              />
             </div>
           </Reveal>
         </Container>

@@ -80,3 +80,17 @@ Stage Summary:
 - Site is delivery-ready: 15 routes (home, about, services, 4 service detail, solutions, FAQ, contact, terms, privacy, cookies, disclaimer, 404, sitemap/robots), all legal pages live with Bangladesh governing law and honest disclaimers.
 - Contact form now pre-qualifies leads (cameras, timeframe, preferred channel) and every submission gets a reference number; delivery remains DB-first with optional Resend email (owner must set RESEND_API_KEY + CONTACT_TO_EMAIL before launch).
 - Owner items before public launch: confirm legal copy with counsel, configure email delivery env vars, review MEDIA_CREDITS.md re-hosted items.
+---
+Task ID: 15
+Agent: Z.ai Code (main)
+Task: Add imagery to page headings ("USE IMG ON HEADING"): brutalist framed photos beside every text-only page hero.
+
+Work Log:
+- Created reusable HeroImage component (src/components/site/hero-image.tsx): hard ink frame, offset vermilion outline, hard offset shadow, corner ticks, mono FIG caption with REC tag, .photo-brutal grayscale-to-color hover.
+- Applied to text-only heroes: /services (cctv-cameras-parapet), /contact (street-night-rain), /faq (operator-screens-profile), and all 4 legal pages via LegalPage (concrete-architecture-bw). Heroes became grid layouts (text left, image right on lg; stacked heading-first on mobile).
+- Pages that already had image heroes untouched: /about (FeedOverlay figure), /surveillance-security-solutions, 4 service detail pages.
+- QA: lint exit 0; browser-verified services/contact/faq/terms heroes at 1440x900 and services at 390x844; no horizontal overflow; dev.log clean.
+
+Stage Summary:
+- Every page heading across the site now has photographic treatment consistent with the brutal-minimal system: 15/15 routes have imagery in or beside their hero/heading.
+- All imagery sourced from the existing licensed /public/media library; no new downloads needed.

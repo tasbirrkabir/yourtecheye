@@ -4,6 +4,7 @@ import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { Container } from "@/components/site/container";
 import { Reveal } from "@/components/site/reveal";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/site/breadcrumbs";
+import { HeroImage } from "@/components/site/hero-image";
 import { ContactForm } from "@/components/forms/contact-form";
 import { site } from "@/lib/site";
 
@@ -37,19 +38,27 @@ export default async function ContactPage({
         <Container className="py-12 sm:py-16">
           <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Contact" }]} />
           <Reveal>
-            <div className="mt-8 max-w-3xl">
-              <p className="flex items-center gap-2.5 font-mono text-[11px] font-bold uppercase tracking-[0.25em] text-ink sm:text-xs">
-                <span className="inline-block h-2 w-2 bg-signal" aria-hidden="true" />
-                Contact
-              </p>
-              <h1 className="stretch-xwide mt-5 text-4xl font-black uppercase leading-[0.95] tracking-tight text-ink sm:text-6xl">
-                Let&apos;s talk about your site<span className="text-signal">.</span>
-              </h1>
-              <p className="mt-6 max-w-2xl text-base leading-relaxed text-smoke sm:text-lg">
-                Tell us about your property, your existing cameras, and what you
-                want protected. We read every enquiry and reply using the contact
-                details you provide: no obligation, no pressure.
-              </p>
+            <div className="mt-8 grid items-end gap-10 lg:grid-cols-[1fr_auto] lg:gap-14">
+              <div className="max-w-3xl">
+                <p className="flex items-center gap-2.5 font-mono text-[11px] font-bold uppercase tracking-[0.25em] text-ink sm:text-xs">
+                  <span className="inline-block h-2 w-2 bg-signal" aria-hidden="true" />
+                  Contact
+                </p>
+                <h1 className="stretch-xwide mt-5 text-4xl font-black uppercase leading-[0.95] tracking-tight text-ink sm:text-6xl">
+                  Let&apos;s talk about your site<span className="text-signal">.</span>
+                </h1>
+                <p className="mt-6 max-w-2xl text-base leading-relaxed text-smoke sm:text-lg">
+                  Tell us about your property, your existing cameras, and what you
+                  want protected. We read every enquiry and reply using the contact
+                  details you provide: no obligation, no pressure.
+                </p>
+              </div>
+              <HeroImage
+                src="/media/street-night-rain.webp"
+                alt="City street at night after rain, lit by traffic and shop lights"
+                caption="FIG.01: DHAKA STREET, AFTER MIDNIGHT"
+                priority
+              />
             </div>
           </Reveal>
         </Container>
