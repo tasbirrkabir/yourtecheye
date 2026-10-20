@@ -57,6 +57,27 @@ Two assets require attribution (`dome-camera-detail.webp`, `parking-garage-night
 - Tesco supermarket interior (CC0) — rejected: prominent third-party trademarks (Tesco, Clubcard) in frame.
 - Cascadia Global Security control-room image — rejected: appears to be a competitor's marketing photo.
 
+### Heading texture pass (12 October 2026, evening pass)
+
+Page display headings (h1) now carry a photographic texture clipped into the letterforms (`background-clip: text`, scrim included, signal dot excluded). Assignments below; every asset is already licence-recorded in the tables above.
+
+| Page | Heading texture | Source file | Notes |
+|---|---|---|---|
+| Home (hero line "A camera") | `city-lights-aerial-bw.webp` | Unsplash (retrieved via image search) | First use of this asset. |
+| `/services` | `warehouse-overhead.webp` | StockCake (free stock) | Owner-review flagged asset from the first pass; review still recommended. |
+| `/about` | `eye-screen-reflection.webp` | re-host (via image search) | Editorial re-host, verify before commercial launch. |
+| `/faq` | `city-night-aerial.webp` | Unsplash (retrieved via image search) | First use. |
+| `/contact` | `garage-entrance-night.webp` | Unsplash (retrieved via image search) | First use. |
+| `/terms`, `/privacy`, `/cookies`, `/disclaimer` | `brutalist-tower-storm.webp` | re-host (via image search) | Editorial re-host, verify before commercial launch. |
+| `/surveillance-cctv-monitoring` | `watcher-portrait-bw.webp` | Digital Photography School (retrieved via image search) | Editorial re-host, verify before commercial launch. |
+| `/live-audio-intervention` | `city-night-grid.webp` | SciTechDaily (NASA/ISS-derived) | Verify before commercial launch. |
+| `/emergency-response` | `street-night-rain.webp` | Light Stalking (retrieved via image search) | Editorial re-host, verify before commercial launch. |
+| `/playback-footage-monitoring` | `parking-garage-stripes.webp` | Unsplash (retrieved via image search) | First use. |
+| `/surveillance-security-solutions` | `hero-property-dusk.webp` | Unsplash (retrieved via image search) | First use. |
+| 404 | `garage-dark-depths.webp` | Unsplash (retrieved via image search) | First use. |
+
+No new assets were downloaded for this pass; all textures reuse files already in the register.
+
 ## Official Your Tech Eye assets (migrated from yourtecheye.com)
 
 | File | Source | Notes |

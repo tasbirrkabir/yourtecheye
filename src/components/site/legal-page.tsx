@@ -4,6 +4,7 @@ import { Container } from "./container";
 import { Reveal } from "./reveal";
 import { Breadcrumbs } from "./breadcrumbs";
 import { HeroImage } from "./hero-image";
+import { PhotoHeading } from "./photo-heading";
 import { site } from "@/lib/site";
 
 export interface LegalSection {
@@ -42,9 +43,14 @@ export function LegalPage({ title, standfirst, updated, sections }: LegalPagePro
                   <FileText className="h-4 w-4 text-signal" aria-hidden="true" />
                   Legal document: {site.shortName}
                 </p>
-                <h1 className="stretch-xwide mt-4 text-4xl font-black uppercase leading-[0.95] tracking-tight text-ink sm:text-5xl">
+                <PhotoHeading
+                  src="/media/brutalist-tower-storm.webp"
+                  scrim={0.5}
+                  preload
+                  className="stretch-xwide mt-4 text-4xl font-black uppercase leading-[0.95] tracking-tight text-ink sm:text-5xl"
+                >
                   {title}
-                </h1>
+                </PhotoHeading>
                 <p className="mt-5 max-w-2xl text-base leading-relaxed text-smoke sm:text-lg">
                   {standfirst}
                 </p>

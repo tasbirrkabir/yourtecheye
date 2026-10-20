@@ -25,6 +25,8 @@ export interface Service {
   metaDescription: string;
   image: string;
   imageAlt: string;
+  /** Photographic texture clipped into the display heading letterforms. */
+  headingImage: string;
   features: { title: string; detail: string }[];
   howItWorks?: { step: string; detail: string }[];
   scopeNote?: string; // operational boundaries, phrased honestly
@@ -49,6 +51,7 @@ export const services: Service[] = [
     image: "/media/monitoring-operator-wall.webp",
     imageAlt:
       "Monitoring wall filled with live CCTV camera feeds, watched by a monitoring operator",
+    headingImage: "/media/watcher-portrait-bw.webp",
     features: [
       {
         title: "Real-time camera monitoring",
@@ -109,6 +112,7 @@ export const services: Service[] = [
     metaDescription:
       "Live audio intervention delivers real-time verbal warnings through on-site speakers to deter intruders and interrupt threats as they happen.",
     image: "/media/dome-camera-detail.webp",
+    headingImage: "/media/city-night-grid.webp",
     imageAlt:
       "Close-up of a modern multi-sensor dome surveillance camera mounted on a building",
     features: [
@@ -168,6 +172,7 @@ export const services: Service[] = [
     metaDescription:
       "When monitoring detects an incident: instant alerts, escalation, and coordination with authorities when needed, fast action during emergencies.",
     image: "/media/parking-garage-night.webp",
+    headingImage: "/media/street-night-rain.webp",
     imageAlt: "Multi-level parking garage illuminated at night",
     features: [
       {
@@ -231,6 +236,7 @@ export const services: Service[] = [
     metaDescription:
       "Professional review and analysis of recorded CCTV footage: incident investigation, event tracking, evidence documentation and security reporting.",
     image: "/media/monitoring-room-illustrative.webp",
+    headingImage: "/media/parking-garage-stripes.webp",
     imageAlt:
       "Interior of a monitoring room with operators reviewing footage on multiple screens (illustrative image)",
     features: [

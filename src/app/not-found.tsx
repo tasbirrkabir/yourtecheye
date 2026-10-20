@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/site/container";
+import { PhotoHeading } from "@/components/site/photo-heading";
 import { site } from "@/lib/site";
 import { services } from "@/content/services";
 
@@ -18,12 +19,14 @@ export default function NotFound() {
         >
           404
         </p>
-        <h1
+        <PhotoHeading
           id="notfound-heading"
+          src="/media/garage-dark-depths.webp"
+          scrim={0.55}
           className="stretch-xwide -mt-4 text-2xl font-black uppercase tracking-tight text-ink sm:text-4xl"
         >
           This page is off camera<span className="text-signal">.</span>
-        </h1>
+        </PhotoHeading>
         <p className="mt-4 max-w-md leading-relaxed text-smoke">
           The page you are looking for does not exist or may have moved. The
           links below will get you back to a monitored view.

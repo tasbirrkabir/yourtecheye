@@ -94,3 +94,26 @@ Work Log:
 Stage Summary:
 - Every page heading across the site now has photographic treatment consistent with the brutal-minimal system: 15/15 routes have imagery in or beside their hero/heading.
 - All imagery sourced from the existing licensed /public/media library; no new downloads needed.
+
+---
+Task ID: 15
+Agent: Z.ai Code (main)
+Task: USE IMG ON HEADING — apply photographic texture inside page display headings across the site
+
+Work Log:
+- Surveyed all heading structures (home, services, about, faq, contact, legal-page.tsx, service-detail.tsx, solutions, not-found) and the /media asset inventory + MEDIA_CREDITS.md
+- Built src/components/site/photo-heading.tsx: renders h1/h2/span with photo clipped into letterforms via background-clip:text; image + scrim passed as CSS custom properties; optional <link rel="preload"> hoisting for above-the-fold headings; accessible (real text, decorative bg only)
+- Added .heading-photo utility to globals.css: solid-ink fallback when background-clip is unsupported; ink under-layer keeps letters visible if the image 404s; .text-signal dot keeps solid vermilion inside photo type
+- Applied photo headings to 12 routes: home hero line "A camera" (city-lights-aerial-bw), services (warehouse-overhead), about (eye-screen-reflection), faq (city-night-aerial), contact (garage-entrance-night), legal template covering terms/privacy/cookies/disclaimer (brutalist-tower-storm), solutions (hero-property-dusk), 404 (garage-dark-depths)
+- Added headingImage field to Service interface + all 4 service entries in src/content/services.ts: cctv-monitoring (watcher-portrait-bw), emergency-response (street-night-rain), live-audio-intervention (city-night-grid), playback (parking-garage-stripes); service-detail.tsx wired to service.headingImage
+- Kept the on-page HeroImage photos distinct from heading textures (no duplicate treatment side-by-side)
+- Preserved aria-labelledby wiring (not-found heading id passed through PhotoHeading)
+- Updated MEDIA_CREDITS.md with a "Heading texture pass" section documenting all assignments; no new assets downloaded
+- Verified: bun run lint clean; all 15 routes 200 (404 correct for unknown path); agent-browser screenshots of home/services/about/faq/contact/terms/emergency-response/solutions/404 at 1440x900 + home/services at 390x844; texture reads in letterforms, dot stays vermilion, mobile scales correctly; browser console clean
+
+Stage Summary:
+- New component: src/components/site/photo-heading.tsx (+ .heading-photo CSS utility in globals.css)
+- Heading textures applied site-wide (14 URLs incl. 4 legal docs, 4 service detail pages) with per-page thematic image assignments
+- content/services.ts schema now includes headingImage per service
+- MEDIA_CREDITS.md documents the heading texture pass (reuse of already-licensed assets only)
+- Owner follow-ups unchanged: confirm re-host/editorial assets before commercial launch (flagged in credits register)

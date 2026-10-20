@@ -4,6 +4,7 @@ import { Container } from "@/components/site/container";
 import { Reveal } from "@/components/site/reveal";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
 import { HeroImage } from "@/components/site/hero-image";
+import { PhotoHeading } from "@/components/site/photo-heading";
 import { FaqAccordion } from "@/components/site/faq-accordion";
 import { ContactCta } from "@/components/site/contact-cta";
 import { faqCategories } from "@/content/faq";
@@ -48,9 +49,14 @@ export default function FaqPage() {
                   <CircleHelp className="h-4 w-4 text-signal" aria-hidden="true" />
                   Knowledge base: {site.shortName}
                 </p>
-                <h1 className="stretch-xwide mt-4 text-4xl font-black uppercase leading-[0.95] tracking-tight text-ink sm:text-5xl">
+                <PhotoHeading
+                  src="/media/city-night-aerial.webp"
+                  scrim={0.45}
+                  preload
+                  className="stretch-xwide mt-4 text-4xl font-black uppercase leading-[0.95] tracking-tight text-ink sm:text-5xl"
+                >
                   Questions, answered straight
-                </h1>
+                </PhotoHeading>
                 <p className="mt-5 max-w-2xl text-base leading-relaxed text-smoke sm:text-lg">
                   Everything people usually ask before putting their site under
                   live monitoring. If your question is not here, call{" "}

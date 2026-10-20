@@ -6,6 +6,7 @@ import { SectionHeading } from "@/components/site/section-heading";
 import { Reveal } from "@/components/site/reveal";
 import { ServiceCard } from "@/components/site/service-card";
 import { HeroImage } from "@/components/site/hero-image";
+import { PhotoHeading } from "@/components/site/photo-heading";
 import { ContactCta } from "@/components/site/contact-cta";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/site/breadcrumbs";
 import { services, howItWorks } from "@/content/services";
@@ -54,9 +55,15 @@ export default function ServicesPage() {
                   <span className="inline-block h-2 w-2 bg-signal" aria-hidden="true" />
                   Services
                 </p>
-                <h1 className="stretch-xwide mt-5 text-4xl font-black uppercase leading-[0.95] tracking-tight text-ink sm:text-6xl">
+                <PhotoHeading
+                  src="/media/warehouse-overhead.webp"
+                  scrim={0.46}
+                  position="center 30%"
+                  preload
+                  className="stretch-xwide mt-5 text-4xl font-black uppercase leading-[0.95] tracking-tight text-ink sm:text-6xl"
+                >
                   Monitoring services built around your site<span className="text-signal">.</span>
-                </h1>
+                </PhotoHeading>
                 <p className="mt-6 max-w-2xl text-base leading-relaxed text-smoke sm:text-lg">
                   Your Tech Eye keeps watch over your cameras, verifies what is
                   seen, and acts while it still matters. Pick the service that

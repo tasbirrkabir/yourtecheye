@@ -202,6 +202,37 @@
     color: transparent;
   }
 
+  /*
+   * Photo-in-heading treatment: a photograph clipped into display letterforms.
+   * The image and scrim arrive via CSS custom properties set inline by
+   * <PhotoHeading>. Without background-clip support the heading simply stays
+   * solid ink; if the image fails, the ink under-layer keeps letters visible.
+   */
+  .heading-photo {
+    color: var(--ink);
+    background-size: cover;
+    background-position: var(--heading-pos, center);
+    background-repeat: no-repeat;
+  }
+  @supports (-webkit-background-clip: text) or (background-clip: text) {
+    .heading-photo {
+      background-color: var(--ink);
+      background-image: linear-gradient(
+          rgba(15, 15, 14, var(--heading-scrim, 0.42)),
+          rgba(15, 15, 14, var(--heading-scrim, 0.42))
+        ),
+        var(--heading-img);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    /* The vermilion dot keeps its solid signal colour inside photo type. */
+    .heading-photo .text-signal,
+    .heading-photo.text-signal {
+      -webkit-text-fill-color: var(--signal);
+    }
+  }
+
   /* Editorial photo treatment: mono by default, color on hover */
   .photo-brutal {
     filter: grayscale(1) contrast(1.06);

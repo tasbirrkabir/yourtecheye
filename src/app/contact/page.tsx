@@ -5,6 +5,7 @@ import { Container } from "@/components/site/container";
 import { Reveal } from "@/components/site/reveal";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/site/breadcrumbs";
 import { HeroImage } from "@/components/site/hero-image";
+import { PhotoHeading } from "@/components/site/photo-heading";
 import { ContactForm } from "@/components/forms/contact-form";
 import { site } from "@/lib/site";
 
@@ -44,9 +45,14 @@ export default async function ContactPage({
                   <span className="inline-block h-2 w-2 bg-signal" aria-hidden="true" />
                   Contact
                 </p>
-                <h1 className="stretch-xwide mt-5 text-4xl font-black uppercase leading-[0.95] tracking-tight text-ink sm:text-6xl">
+                <PhotoHeading
+                  src="/media/garage-entrance-night.webp"
+                  scrim={0.46}
+                  preload
+                  className="stretch-xwide mt-5 text-4xl font-black uppercase leading-[0.95] tracking-tight text-ink sm:text-6xl"
+                >
                   Let&apos;s talk about your site<span className="text-signal">.</span>
-                </h1>
+                </PhotoHeading>
                 <p className="mt-6 max-w-2xl text-base leading-relaxed text-smoke sm:text-lg">
                   Tell us about your property, your existing cameras, and what you
                   want protected. We read every enquiry and reply using the contact

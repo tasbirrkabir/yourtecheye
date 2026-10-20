@@ -9,6 +9,7 @@ import { FaqAccordion } from "@/components/site/faq-accordion";
 import { ContactCta } from "@/components/site/contact-cta";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/site/breadcrumbs";
 import { FeedOverlay } from "@/components/site/feed-overlay";
+import { PhotoHeading } from "@/components/site/photo-heading";
 import { getService, services, type Service } from "@/content/services";
 import { site } from "@/lib/site";
 
@@ -78,10 +79,15 @@ export function ServiceDetail({ slug }: ServiceDetailProps) {
                   <span className="inline-block h-2 w-2 bg-signal" aria-hidden="true" />
                   Service {String(services.findIndex((s) => s.slug === service.slug) + 1).padStart(2, "0")} / 04
                 </p>
-                <h1 className="stretch-xwide mt-5 text-4xl font-black uppercase leading-[0.95] tracking-tight text-ink sm:text-5xl lg:text-6xl">
+                <PhotoHeading
+                  src={service.headingImage}
+                  scrim={0.46}
+                  preload
+                  className="stretch-xwide mt-5 text-4xl font-black uppercase leading-[0.95] tracking-tight text-ink sm:text-5xl lg:text-6xl"
+                >
                   {service.title}
                   <span className="text-signal">.</span>
-                </h1>
+                </PhotoHeading>
               </Reveal>
               <Reveal delay={70}>
                 <p className="mt-5 font-mono text-xs font-bold uppercase tracking-[0.2em] text-signal sm:text-sm">

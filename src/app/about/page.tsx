@@ -8,6 +8,7 @@ import { Reveal } from "@/components/site/reveal";
 import { ContactCta } from "@/components/site/contact-cta";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/site/breadcrumbs";
 import { FeedOverlay } from "@/components/site/feed-overlay";
+import { PhotoHeading } from "@/components/site/photo-heading";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -67,9 +68,14 @@ export default function AboutPage() {
                   <span className="inline-block h-2 w-2 bg-signal" aria-hidden="true" />
                   About
                 </p>
-                <h1 className="stretch-xwide mt-5 text-4xl font-black uppercase leading-[0.95] tracking-tight text-ink sm:text-6xl">
+                <PhotoHeading
+                  src="/media/eye-screen-reflection.webp"
+                  scrim={0.44}
+                  preload
+                  className="stretch-xwide mt-5 text-4xl font-black uppercase leading-[0.95] tracking-tight text-ink sm:text-6xl"
+                >
                   Welcome to Your Tech Eye<span className="text-signal">.</span>
-                </h1>
+                </PhotoHeading>
                 <p className="mt-6 max-w-xl text-base leading-relaxed text-smoke sm:text-lg">
                   Your Tech Eye is a modern monitoring and technology company
                   providing smart, secure, and reliable protection solutions for

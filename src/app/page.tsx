@@ -10,6 +10,7 @@ import { ContactCta } from "@/components/site/contact-cta";
 import { Marquee } from "@/components/site/marquee";
 import { FeedOverlay } from "@/components/site/feed-overlay";
 import { AutoVideo } from "@/components/site/auto-video";
+import { PhotoHeading } from "@/components/site/photo-heading";
 import { homeFaqs } from "@/content/faq";
 import { services, howItWorks, useCases } from "@/content/services";
 import { site } from "@/lib/site";
@@ -72,7 +73,15 @@ export default function HomePage() {
                   id="hero-heading"
                   className="stretch-xwide mt-6 text-[12.5vw] font-black uppercase leading-[0.92] tracking-tight text-ink sm:text-6xl md:text-7xl lg:text-[4.7rem] xl:text-[5.2rem]"
                 >
-                  <span className="block whitespace-nowrap">A camera</span>
+                  <PhotoHeading
+                    as="span"
+                    src="/media/city-lights-aerial-bw.webp"
+                    scrim={0.5}
+                    preload
+                    className="block whitespace-nowrap"
+                  >
+                    A camera
+                  </PhotoHeading>
                   <span className="block whitespace-nowrap text-stroke-ink">is not</span>
                   <span className="block whitespace-nowrap">
                     a guard<span className="text-signal">.</span>

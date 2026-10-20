@@ -7,6 +7,7 @@ import { SectionHeading } from "@/components/site/section-heading";
 import { Reveal } from "@/components/site/reveal";
 import { ContactCta } from "@/components/site/contact-cta";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/site/breadcrumbs";
+import { PhotoHeading } from "@/components/site/photo-heading";
 import { solutionsPage, services } from "@/content/services";
 import { site } from "@/lib/site";
 
@@ -63,9 +64,14 @@ export default function SolutionsPage() {
                   <span className="inline-block h-2 w-2 bg-signal" aria-hidden="true" />
                   Solutions
                 </p>
-                <h1 className="stretch-xwide mt-5 text-4xl font-black uppercase leading-[0.95] tracking-tight text-ink sm:text-5xl lg:text-6xl">
+                <PhotoHeading
+                  src="/media/hero-property-dusk.webp"
+                  scrim={0.46}
+                  preload
+                  className="stretch-xwide mt-5 text-4xl font-black uppercase leading-[0.95] tracking-tight text-ink sm:text-5xl lg:text-6xl"
+                >
                   Surveillance &amp; Security Solutions<span className="text-signal">.</span>
-                </h1>
+                </PhotoHeading>
               </Reveal>
               <Reveal delay={80}>
                 <p className="mt-6 max-w-xl text-base leading-relaxed text-smoke sm:text-lg">
