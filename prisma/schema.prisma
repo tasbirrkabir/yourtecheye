@@ -27,3 +27,23 @@ model ContactSubmission {
   userAgent    String?
   createdAt    DateTime @default(now())
 }
+
+/// Blog posts / case notes. Written and managed from the admin panel
+/// (/admin); only status="published" rows are visible on the public site.
+model BlogPost {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  title       String
+  excerpt     String
+  content     String // markdown-lite body (headings, lists, notes, figures)
+  coverImage  String? // path under /public: /media/... or /uploads/...
+  gallery     String    @default("[]") // JSON array of { src, alt }
+  tags        String    @default("") // comma-separated
+  author      String    @default("Md Al-Amin")
+  status      String    @default("draft") // draft | published
+  publishedAt DateTime?
+  readMinutes Int       @default(3)
+  sourceUrl   String? // optional attribution link (e.g. author's LinkedIn)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
