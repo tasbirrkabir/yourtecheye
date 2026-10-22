@@ -127,14 +127,15 @@ export function SiteFooter() {
             </nav>
           </div>
           <p className="max-w-xl normal-case tracking-normal">
-            Photography is licensed stock or public-archive material used
-            illustratively. See{" "}
-            <Link
-              href="/privacy#media-credits"
-              className="underline decoration-paper/40 underline-offset-2 hover:text-paper"
+            Developed by{" "}
+            <a
+              href="https://tasbirkabir.me"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-paper/40 underline-offset-2 transition-colors hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
-              media credits
-            </Link>
+              Tasbir Kabir
+            </a>
             .
           </p>
         </div>

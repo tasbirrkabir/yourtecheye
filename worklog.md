@@ -139,3 +139,16 @@ Stage Summary:
 - Content is grounded in the founder's public LinkedIn themes (white-label monitoring, human element, audio intervention, playback review) with profile attribution on every post.
 - QA is browser-verified at desktop and mobile: CRUD, auth, upload/delete, markdown rendering, navigation, sitemap, no console errors or dev.log errors.
 - Owner note: change ADMIN_PASSWORD in .env before launch; uploads live in /public/uploads (exclude from any redeploy diff).
+
+---
+Task ID: 17
+Agent: Z.ai Code (main)
+Task: Replace footer photography-credits line with "Developed by Tasbir Kabir" linking to tasbirkabir.me.
+
+Work Log:
+- Edited src/components/site/site-footer.tsx: removed "Photography is licensed stock or public-archive material used illustratively. See media credits." and replaced with "Developed by Tasbir Kabir." where Tasbir Kabir is an external link to https://tasbirkabir.me (target=_blank, rel=noopener noreferrer, focus ring, hover styles).
+- The /privacy#media-credits anchor and privacy page content remain unchanged (still reachable from privacy page itself).
+- Verified in browser at 1440x900: new line renders in the footer credits row, old text gone, link href/target/rel correct; bun run lint exit 0.
+
+Stage Summary:
+- Footer credit line now reads "Developed by Tasbir Kabir." site-wide (footer is a shared component on every route).
