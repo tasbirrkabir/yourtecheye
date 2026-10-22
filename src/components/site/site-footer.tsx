@@ -30,6 +30,7 @@ export function SiteFooter() {
                 { href: "/", label: "Home" },
                 { href: "/about", label: "About" },
                 { href: "/services", label: "Services" },
+                { href: "/blog", label: "Blog" },
                 { href: "/faq", label: "FAQ" },
                 { href: "/contact", label: "Contact" },
               ].map((l) => (

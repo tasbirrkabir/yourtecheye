@@ -13,7 +13,10 @@ import { AutoVideo } from "@/components/site/auto-video";
 import { PhotoHeading } from "@/components/site/photo-heading";
 import { homeFaqs } from "@/content/faq";
 import { services, howItWorks, useCases } from "@/content/services";
+import { getPublishedPosts } from "@/lib/blog";
 import { site } from "@/lib/site";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Live CCTV Monitoring by Trained Operators",
@@ -53,7 +56,19 @@ const problemRows = [
   },
 ] as const;
 
-export default function HomePage() {
+function formatPostDate(date: Date | null): string {
+  if (!date) return "Unscheduled";
+  return new Intl.DateTimeFormat("en-GB", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(date);
+}
+
+export default async function HomePage() {
+  const fieldNotes = await getPublishedPosts(3);
+
   return (
     <>
       {/* ------------------------------------------------ 1. Hero */}
@@ -238,13 +253,85 @@ export default function HomePage() {
         </Container>
       </section>
 
+      {/* ------------------------------------------------ 3.5 Field notes (blog) */}
+      {fieldNotes.length > 0 && (
+        <section aria-labelledby="notes-heading" className="border-t border-line bg-paper">
+          <Container className="py-16 sm:py-24">
+            <Reveal>
+              <div className="flex flex-wrap items-end justify-between gap-6">
+                <SectionHeading
+                  index="02"
+                  eyebrow="Field notes"
+                  title="Case notes from behind the glass"
+                  description="What live monitoring catches, what it prevents, and what the work looks like from the ops floor. Written by the team that watches."
+                />
+                <Link
+                  href="/blog"
+                  className="group inline-flex items-center gap-2 border-b-2 border-ink pb-1 font-mono text-xs font-bold uppercase tracking-[0.2em] text-ink transition-colors hover:border-signal hover:text-signal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                >
+                  All field notes
+                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+                </Link>
+              </div>
+            </Reveal>
+            <ul className="mt-12 grid gap-5 md:grid-cols-3">
+              {fieldNotes.map((post, i) => (
+                <li key={post.id}>
+                  <Reveal delay={i * 70}>
+                    <article className="group h-full border-2 border-ink bg-paper transition-shadow hover:hard-shadow-signal">
+                      <Link href={`/blog/${post.slug}`} className="flex h-full flex-col" aria-label={`Read field note: ${post.title}`}>
+                        <div className="relative aspect-[16/9] overflow-hidden border-b-2 border-ink bg-ink">
+                          {post.coverImage ? (
+                            <Image
+                              src={post.coverImage}
+                              alt={post.title}
+                              width={1200}
+                              height={800}
+                              sizes="(max-width: 768px) 100vw, 33vw"
+                              className="h-full w-full object-cover photo-brutal"
+                            />
+                          ) : (
+                            <div className="flex h-full items-center justify-center">
+                              <span className="font-mono text-xs uppercase tracking-[0.3em] text-paper/40">
+                                YTE / Log entry
+                              </span>
+                            </div>
+                          )}
+                        </div>
+                        <div className="flex flex-1 flex-col p-5">
+                          <p className="flex flex-wrap items-center gap-x-2.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-smoke">
+                            <time dateTime={post.publishedAt?.toISOString()}>{formatPostDate(post.publishedAt)}</time>
+                            <span aria-hidden="true">/</span>
+                            <span>{post.readMinutes} min</span>
+                          </p>
+                          <h3 className="stretch-wide mt-3 text-lg font-black uppercase leading-tight tracking-tight text-ink transition-colors group-hover:text-signal sm:text-xl">
+                            {post.title}
+                          </h3>
+                          <p className="mt-2.5 line-clamp-2 text-sm leading-relaxed text-smoke">
+                            {post.excerpt}
+                          </p>
+                          <span className="mt-auto inline-flex items-center gap-1.5 pt-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-ink group-hover:text-signal">
+                            Read the entry
+                            <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                          </span>
+                        </div>
+                      </Link>
+                    </article>
+                  </Reveal>
+                </li>
+              ))}
+            </ul>
+          </Container>
+        </section>
+      )}
+
       {/* ------------------------------------------------ 4. Services index */}
-      <section id="services" aria-labelledby="services-heading" className="bg-paper">
+      <section id="services" aria-labelledby="services-heading" className="border-t border-line bg-paper">
         <Container className="py-16 sm:py-24">
           <Reveal>
             <div className="flex flex-wrap items-end justify-between gap-6">
               <SectionHeading
-                index="02"
+                index="03"
                 eyebrow="Services"
                 title="Four lines of defense"
                 description="Watch live. Verify what is seen. Act while it matters. Pick one line or stack all four: they are built to work as a system."
@@ -298,7 +385,7 @@ export default function HomePage() {
         <Container className="py-16 sm:py-24">
           <Reveal>
             <SectionHeading
-              index="03"
+              index="04"
               eyebrow="Field of view"
               title="What our eyes actually see"
               description="Perimeters, floors, ramps, and feeds: the places where losses happen, watched by people who are awake and looking."
@@ -399,7 +486,7 @@ export default function HomePage() {
             <div>
               <Reveal>
                 <SectionHeading
-                  index="04"
+                  index="05"
                   eyebrow="The method"
                   title="We put people behind the glass."
                   tone="dark"
@@ -448,7 +535,7 @@ export default function HomePage() {
         <Container className="py-16 sm:py-24">
           <Reveal>
             <SectionHeading
-              index="05"
+              index="06"
               eyebrow="Who it is for"
               title="Built around the site, not the other way around"
               description="Monitoring is shaped around what each kind of property actually needs. No one-size-fits-all camera package."
@@ -498,7 +585,7 @@ export default function HomePage() {
       <section aria-labelledby="faq-heading" className="border-t border-line bg-paper">
         <Container narrow className="py-16 sm:py-24">
           <Reveal>
-            <SectionHeading index="06" eyebrow="FAQ" title="Practical questions, straight answers" align="center" />
+            <SectionHeading index="07" eyebrow="FAQ" title="Practical questions, straight answers" align="center" />
           </Reveal>
           <Reveal delay={80}>
             <div className="mt-10 border-t-2 border-ink">

@@ -3,6 +3,9 @@
  * query used by the homepage, /blog, /blog/[slug] and the sitemap.
  */
 import { db } from "@/lib/db";
+import { SLUG_RE, slugify } from "@/lib/slugify";
+
+export { SLUG_RE, slugify };
 
 export interface GalleryImage {
   src: string;
@@ -48,18 +51,6 @@ export function parseTags(csv: string | null | undefined): string[] {
     .map((t) => t.trim())
     .filter(Boolean)
     .slice(0, 8);
-}
-
-export const SLUG_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
-
-export function slugify(input: string): string {
-  return input
-    .toLowerCase()
-    .replace(/['’]/g, "")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "")
-    .replace(/-{2,}/g, "-")
-    .slice(0, 80);
 }
 
 /** Rough reading time: 200 words per minute, minimum 1. */

@@ -148,6 +148,10 @@ export function SiteHeader() {
               FAQ
             </Link>
 
+            <Link href="/blog" className={cn(navLink, isActive("/blog") && "text-signal")} aria-current={isActive("/blog") ? "page" : undefined}>
+              Blog
+            </Link>
+
             <Link href="/contact" className={cn(navLink, isActive("/contact") && "text-signal")} aria-current={isActive("/contact") ? "page" : undefined}>
               Contact
             </Link>
@@ -251,6 +255,13 @@ export function SiteHeader() {
             aria-current={isActive("/faq") ? "page" : undefined}
           >
             FAQ
+          </Link>
+          <Link
+            href="/blog"
+            className="border-b border-line-dark py-4 text-2xl font-black uppercase tracking-tight text-paper hover:text-signal"
+            aria-current={isActive("/blog") ? "page" : undefined}
+          >
+            Blog
           </Link>
           <Link
             href="/contact"
