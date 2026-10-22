@@ -119,6 +119,7 @@ export default async function BlogIndexPage() {
                             alt={lead.title}
                             width={1600}
                             height={1000}
+                            priority
                             sizes="(max-width: 1024px) 100vw, 55vw"
                             className="h-56 w-full object-cover photo-brutal sm:h-72 lg:h-full lg:min-h-[24rem]"
                           />

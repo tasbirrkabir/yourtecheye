@@ -117,3 +117,25 @@ Stage Summary:
 - content/services.ts schema now includes headingImage per service
 - MEDIA_CREDITS.md documents the heading texture pass (reuse of already-licensed assets only)
 - Owner follow-ups unchanged: confirm re-host/editorial assets before commercial launch (flagged in credits register)
+
+---
+Task ID: 16
+Agent: Z.ai Code (main)
+Task: Blog system completion + final QA: admin panel, public blog, homepage field-notes section, seeded case studies, end-to-end browser verification.
+
+Work Log:
+- Verified all previously built blog infrastructure was intact: /api/blog (public list), /api/admin/posts + [id] (CRUD), /api/admin/login|logout|session (HMAC cookie auth), /api/admin/upload + images (upload/list/delete), /admin dashboard (editor + library tabs), /blog + /blog/[slug] public pages, homepage "Case notes from behind the glass" section after the problem block, header/footer/sitemap Blog wiring.
+- Confirmed 5 seeded field notes live in SQLite (scripts/seed-blog.mjs, idempotent): white-label monitoring cost case, protect-your-present, human element, audio intervention, playback review; all authored by Md Al-Amin with sourceUrl attribution to his LinkedIn profile.
+- Design-rule sweep on all new files: zero em dashes, zero "24/7 monitoring / day and night" tropes, brutal-minimal tokens intact.
+- Browser E2E at 1440x900: homepage blog section renders 3 cards with covers/dates/read-minutes after the problem section; /blog shows photo heading + featured lead entry + grid + closing enquiries note; detail page renders breadcrumbs, LOG ENTRY metadata, display title, excerpt, tags, markdown body (h2, lists, pull quote), dark CTA band; giant footer sticks and pushes correctly.
+- Admin flow verified end-to-end: logout reveals OPS DESK login; wrong password shows "Incorrect password."; correct ADMIN_PASSWORD logs in; created QA post via NEW ENTRY form (title/slug/status/excerpt/markdown body/tags), saved as published (ENTRIES 5 to 6), post appeared on /blog and /blog/[slug] with correct markdown rendering; deleted it via list DELETE with native confirm dialog (back to 5).
+- Image API verified: upload (auto-converts to webp, returns dimensions), list, delete via ?src= query param (frontend pattern confirmed at admin-dashboard.tsx line 389); unauthenticated admin API calls return 401; test upload removed after verification.
+- Mobile QA at 390x844: homepage blog cards stack single-column, /blog and detail pages have no horizontal overflow, breadcrumbs and metadata wrap cleanly.
+- Fixed the one console warning found: added priority to the /blog lead entry Image (it is above-the-fold LCP); fresh console after reload is clean.
+- Final sweep: 19 real routes 200 + correct 404 for unknown paths; sitemap.xml includes /blog and all 5 published posts; robots.txt 200; bun run lint exit 0; dev.log free of errors.
+
+Stage Summary:
+- YTE now has a complete blog pipeline: owner logs in at /admin with ADMIN_PASSWORD, writes markdown field notes, uploads cover/gallery images (auto-webp), publishes; entries appear instantly on /blog, the homepage field-notes section, and sitemap.xml.
+- Content is grounded in the founder's public LinkedIn themes (white-label monitoring, human element, audio intervention, playback review) with profile attribution on every post.
+- QA is browser-verified at desktop and mobile: CRUD, auth, upload/delete, markdown rendering, navigation, sitemap, no console errors or dev.log errors.
+- Owner note: change ADMIN_PASSWORD in .env before launch; uploads live in /public/uploads (exclude from any redeploy diff).
