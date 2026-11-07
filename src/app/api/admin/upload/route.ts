@@ -50,17 +50,13 @@ export async function POST(req: NextRequest) {
 
     try {
       const buffer = Buffer.from(await file.arrayBuffer());
-      const sharpModule = await import("sharp");
-      const sharp = sharpModule.default;
-      const base = sharp(buffer).rotate().resize({ width: 1920, withoutEnlargement: true });
-      const meta = await base.metadata();
-      const outName = `${Date.now().toString(36)}-${slugify(file.name.replace(/\.[^.]+$/, "")).slice(0, 48) || "photo"}.webp`;
-      const outBuffer = await base.webp({ quality: 82 }).toBuffer();
-      await writeFile(path.join(UPLOAD_DIR, outName), outBuffer);
+      const ext = file.name.split(".").pop()?.toLowerCase() || "jpg";
+      const outName = `${Date.now().toString(36)}-${slugify(file.name.replace(/\.[^.]+$/, "")).slice(0, 48) || "photo"}.${ext}`;
+      await writeFile(path.join(UPLOAD_DIR, outName), buffer);
       uploaded.push({
         src: `/uploads/${outName}`,
-        width: meta.width ?? 1920,
-        height: meta.height ?? 1080,
+        width: 1920,
+        height: 1080,
       });
     } catch (err) {
       console.error("[admin/upload] failed:", err);
