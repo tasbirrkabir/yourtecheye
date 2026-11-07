@@ -2,6 +2,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "yourtecheye",
   "main": ".open-next/worker.js",
+  "workers_dev": true,
   "compatibility_date": "2026-11-04",
   "compatibility_flags": [
     "nodejs_compat"
