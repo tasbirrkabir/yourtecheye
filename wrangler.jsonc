@@ -16,6 +16,16 @@
       "service": "yourtecheye"
     }
   ],
+  "routes": [
+    {
+      "pattern": "yourtecheye.com",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.yourtecheye.com",
+      "custom_domain": true
+    }
+  ],
   "observability": {
     "enabled": true
   }
